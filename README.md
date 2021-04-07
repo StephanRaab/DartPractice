@@ -1,4 +1,4 @@
-# DartPractice
+# DartsPractice
 
 ## RVB Game
 
