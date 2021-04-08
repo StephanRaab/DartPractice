@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DartsPractice.Views.RvbGamePage" Title="{Binding Title}" BackgroundColor="Orange">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Scoring on 20" TextColor="White"/>
+
+            <Label HorizontalOptions="Center" Margin="50" Text="20" FontSize="30" TextColor="White" FontAttributes="Bold"/>
+
+            <Label Text="Number of Hits with 3 Darts" TextColor="White" HorizontalTextAlignment="Center"/>
+
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*">
+                <Button Grid.Column="0" Grid.Row="0" Text="1" CommandParameter="1" Command="{Binding ScoreCommand}"/>
+                <Button Grid.Column="1" Grid.Row="0" Text="2" CommandParameter="2" Command="{Binding ScoreCommand}"/>
+                <Button Grid.Column="2" Grid.Row="0" Text="3" CommandParameter="3" Command="{Binding ScoreCommand}"/>
+
+                <Button Grid.Column="0" Grid.Row="1" Text="4" CommandParameter="4" Command="{Binding ScoreCommand}"/>
+                <Button Grid.Column="1" Grid.Row="1" Text="5" CommandParameter="5" Command="{Binding ScoreCommand}"/>
+                <Button Grid.Column="2" Grid.Row="1" Text="6" CommandParameter="6" Command="{Binding ScoreCommand}"/>
+
+                <Button Grid.Column="0" Grid.Row="2" Text="7" CommandParameter="7" Command="{Binding ScoreCommand}"/>
+                <Button Grid.Column="1" Grid.Row="2" Text="8" CommandParameter="8" Command="{Binding ScoreCommand}"/>
+                <Button Grid.Column="2" Grid.Row="2" Text="9" CommandParameter="9" Command="{Binding ScoreCommand}"/>
+
+                <Button Grid.ColumnSpan="1" Grid.Row="3" Text="0"/>
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

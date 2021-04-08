@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DartsPractice.Views.PostItGamePage" Title="{Binding Title}" BackgroundColor="DarkBlue">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Number of Hits with 3 Darts" TextColor="White" />
+
+            <!-- Running Total -->
+            <Label Text="17" FontSize="30" TextColor="White" FontAttributes="Bold"/>
+
+            <Grid RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*,*,*,*,*,*">
+                <!--description-->
+                <Label Grid.Column="0" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="0" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 1-->
+                <Label Grid.Column="1" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="1" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 2-->
+                <Label Grid.Column="2" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="2" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 3-->
+                <Label Grid.Column="3" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="3" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 4-->
+                <Label Grid.Column="4" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="4" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 5-->
+                <Label Grid.Column="5" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="5" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 6-->
+                <Label Grid.Column="6" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="6" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 7-->
+                <Label Grid.Column="7" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="7" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 8-->
+                <Label Grid.Column="8" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="8" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 9-->
+                <Label Grid.Column="9" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="9" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+
+                <!--visit 10-->
+                <Label Grid.Column="10" Grid.Row="0" Text="Visit" TextColor="White" FontAttributes="Bold"/>
+                <Label Grid.Column="10" Grid.Row="1" Text="Hits" TextColor="White" FontAttributes="Bold"/>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="0"/>
+                <Button Text="1"/>
+                <Button Text="2"/>
+                <Button Text="3"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
