@@ -39,7 +39,7 @@ You have 6 darts to checkout, you have to complete before it regenerates a new n
 
 ## Knockout Doubles
 
-Throw first dart at Bull.
+Throw first dart at Bull:
 
 1. If you hit Bull, proceed to throw 2 darts at whichever double you'd like.
 
