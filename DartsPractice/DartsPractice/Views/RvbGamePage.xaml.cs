@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using DartsPractice.ViewModels;
 using Xamarin.Forms;
 
 namespace DartsPractice.Views
@@ -10,6 +10,7 @@ namespace DartsPractice.Views
         public RvbGamePage()
         {
             InitializeComponent();
+            BindingContext = new RvbGameViewModel();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DartsPractice.ViewModels;
 using Xamarin.Forms;
 
 namespace DartsPractice
@@ -13,6 +14,7 @@ namespace DartsPractice
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new MainViewModel();
         }
     }
 }

@@ -2,31 +2,55 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="DartsPractice.Views.RvbGamePage" Title="{Binding Title}" BackgroundColor="Orange">
+    x:Class="DartsPractice.Views.RvbGamePage"
+    Title="{Binding Title}"
+    BackgroundColor="Orange">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Scoring on 20" TextColor="White"/>
+        <StackLayout Margin="20">
+            <Label Margin="0,0,0,20" Text="Number of Marks with 3 Darts" TextColor="White" HorizontalTextAlignment="Center"/>
 
-            <Label HorizontalOptions="Center" Margin="50" Text="20" FontSize="30" TextColor="White" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Scoring on" TextColor="White"/>
+            <Label HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding CurrentTarget}" FontSize="30" TextColor="White" FontAttributes="Bold"/>
 
-            <Label Text="Number of Hits with 3 Darts" TextColor="White" HorizontalTextAlignment="Center"/>
+            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Current Total" TextColor="White"/>
+            <Label HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding RunningTotal}" FontSize="30" TextColor="White" FontAttributes="Bold"/>
 
             <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*">
-                <Button Grid.Column="0" Grid.Row="0" Text="1" CommandParameter="1" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="1" Grid.Row="0" Text="2" CommandParameter="2" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="2" Grid.Row="0" Text="3" CommandParameter="3" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="0" Text="1" CommandParameter="1" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="0" Text="2" CommandParameter="2" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="0" Text="3" CommandParameter="3" Command="{Binding ScoreCommand}"/>
 
-                <Button Grid.Column="0" Grid.Row="1" Text="4" CommandParameter="4" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="1" Grid.Row="1" Text="5" CommandParameter="5" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="2" Grid.Row="1" Text="6" CommandParameter="6" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="1" Text="4" CommandParameter="4" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="1" Text="5" CommandParameter="5" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="1" Text="6" CommandParameter="6" Command="{Binding ScoreCommand}"/>
 
-                <Button Grid.Column="0" Grid.Row="2" Text="7" CommandParameter="7" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="1" Grid.Row="2" Text="8" CommandParameter="8" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="2" Grid.Row="2" Text="9" CommandParameter="9" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="2" Text="7" CommandParameter="7" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="2" Text="8" CommandParameter="8" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="2" Text="9" CommandParameter="9" Command="{Binding ScoreCommand}"/>
 
-                <Button Grid.ColumnSpan="1" Grid.Row="3" Text="0"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="3" Text="0" Command="{Binding ScoreCommand}"/>
             </Grid>
 
+            <StackLayout
+                Margin="50"
+                IsVisible="{Binding ShowEndOptions}"
+                Spacing="10"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="EndAndExpand">
+                <Button
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Padding="10"
+                    Text="Quit"
+                    Command="{Binding QuitGameCommand}"/>
+                <Button
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    Padding="10"
+                    Text="Play Again"
+                    Command="{Binding NewGameCommand}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
