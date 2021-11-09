@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DartsPractice.Views.A1Page"
+    Title="{Binding Title}"
+    BackgroundColor="Orange">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*" Margin="20">
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="0" Grid.Column="0">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="20" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Orange" Opacity="1"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Orange" Opacity="1"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="LightBlue" HasShadow="False" Grid.Row="0" Grid.Column="1">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="19" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Orange" Opacity="1"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Orange" Opacity="1"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Orange" Opacity="1"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="0" Grid.Column="2">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="18" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="0">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="17" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="1">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="16" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="2">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="15" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+            
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="0">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="14" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="1">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="13" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="2">
+                <StackLayout>
+                    <Label HorizontalOptions="Center" Text="Bull" FontSize="Title" FontAttributes="Bold"/>
+                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                        <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
+                    </StackLayout>                    
+                </StackLayout>
+            </Frame>            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

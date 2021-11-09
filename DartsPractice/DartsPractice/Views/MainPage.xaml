@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DartsPractice.MainPage"
-             Title="DartsPractice">
+             Title="{Binding Title}">
 
     <StackLayout>
         <Button Text="RVB Scoring" Command="{Binding RVBCommand}"/>
+        <Button Text="A1 Drill" Command="{Binding A1Command}"/>
         <Button Text="Post-It" Command="{Binding PostItCommand}"/>
         <Button Text="Power Scoring" Command="{Binding PowerCommand}"/>
     </StackLayout>
-
 </ContentPage>
