@@ -12,5 +12,9 @@ namespace DartsPractice.Views
             InitializeComponent();
             BindingContext = new A1ViewModel();
         }
+
+        void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
+        {
+        }
     }
 }

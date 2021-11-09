@@ -4,7 +4,7 @@
              x:Class="DartsPractice.MainPage"
              Title="{Binding Title}">
 
-    <StackLayout>
+    <StackLayout Margin="20" Spacing="10">
         <Button Text="RVB Scoring" Command="{Binding RVBCommand}"/>
         <Button Text="A1 Drill" Command="{Binding A1Command}"/>
         <Button Text="Post-It" Command="{Binding PostItCommand}"/>
