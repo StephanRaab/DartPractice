@@ -16,6 +16,22 @@ Throw 10 rounds at the note.
 
 *Max score: 30*
 
+## A1 Drill
+
+Throw 3 darts at the segments 13 through 20 and Bull.
+The object is to get at least 2 out of 3 darts in the bed.
+When you hit a target, with at least 2 darts, you get a drill hit.
+You need 5 drill hits on each target to close and finish the game.
+
+## Checkpoint-501
+Start at 501 and score as much as possible.
+You need to reach any of the checkmarks to get points in this game.
+For example:
+- Reach 170 in 9 darts = 5 points
+- Reach 125 in 12 darts = 4 points
+- Reach 90 in 15 darts = 2 points
+- Reach 40 in 18 darts = 1 point
+
 ## Power Scoring
 
 Throw 10 rounds at 20-18 to practice cover shots.
