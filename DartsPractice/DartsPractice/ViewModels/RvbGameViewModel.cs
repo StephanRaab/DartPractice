@@ -131,9 +131,6 @@ namespace DartsPractice.ViewModels
 
                     RVBScore.Time = DateTime.UtcNow;
                     RVBScore.ScoreTotal = RunningTotal;
-
-                    // save to db
-                    // show statistics
                 }
             }            
         }
