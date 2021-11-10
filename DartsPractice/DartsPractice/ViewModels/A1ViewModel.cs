@@ -16,7 +16,9 @@ namespace DartsPractice.ViewModels
         public ICommand MissCommand { get; }
         private int _currentTarget = 0;
         private int _roundCount = 0;
-        private const int MAXHITS = 5;
+        private const int MAX_HITS = 5;
+        private const int LAST_ROUND = 8;
+        private const int FIRST_ROUND = 0;
 
         public A1Target twentyTarget = new A1Target();
         private A1Target nineteenTarget = new A1Target();
@@ -59,6 +61,11 @@ namespace DartsPractice.ViewModels
             return hitcount;
         }
 
+        private A1Target getScoringSegment()
+        {
+            return newTargetList[_currentTarget];
+        }
+
         private void scoreSegment()
         {
             int hitCount = getHitCount();
@@ -68,36 +75,38 @@ namespace DartsPractice.ViewModels
             {
                 //game over
                 //show dialog with overview of total darts shot and time taken
-                Console.WriteLine("GAME OVER!!");
-            } else if (hitCount == MAXHITS) {
-                //remove option from list
+                Console.WriteLine("GAME OVER!!!");
+            } else if (hitCount == MAX_HITS) {                
+                Console.WriteLine($"{getCurrentTarget()} has been hit {hitCount}, it should now be closed.");
+
+                //remove option from list                
                 _targetList.RemoveAt(_currentTarget);
-                Console.WriteLine($"{getCurrentTarget()} is now CLOSED!");
             }
             else 
             {
+                var scoringSegment = getScoringSegment();
+
                 // remove old data
-                A1Target currentTarget = newTargetList[_currentTarget];
-                currentTarget.Hits.Clear();
+                scoringSegment.Hits.Clear();
 
                 //add the hits
                 for (int i = 0; i < hitCount; i++)
                 {
-                    currentTarget.Hits.Add(1);
+                    scoringSegment.Hits.Add(1);
                 }
 
                 //add the remaining misses
-                for (int i = hitCount; i < 5; i++)
+                for (int i = hitCount; i < MAX_HITS; i++)
                 {
-                    currentTarget.Hits.Add(0);
+                    scoringSegment.Hits.Add(0);
                 }
             }
         }
 
         private void increaseCurrentTarget()
         {
-            if (_currentTarget == 8)
-                _currentTarget = 0;
+            if (_currentTarget == LAST_ROUND)
+                _currentTarget = FIRST_ROUND;
             else
                 _currentTarget++;
         }
