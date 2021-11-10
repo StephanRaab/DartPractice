@@ -131,7 +131,8 @@ namespace DartsPractice.ViewModels
             {
                 // game over
                 _timer.Stop();
-                TotalTimeTaken = _timer.Elapsed.TotalMinutes.ToString();
+                TotalTimeTaken = _timer.Elapsed.TotalMinutes.ToString(@"hh\:mm\:ss");
+
                 endOfGame = true;
                 calculateTotalDartsThrown();
 

@@ -6,7 +6,7 @@
     x:Class="DartsPractice.Popups.A1PopupPage" CloseWhenBackgroundIsClicked="False">
     <Frame BackgroundColor="White" Opacity=".85" HasShadow="False" Margin="20">
         <StackLayout>
-            <Label TextColor="Black" FontSize="100" Margin="20" HorizontalTextAlignment="Center" Text="Game Stats"/>
+            <Label TextColor="Black" FontSize="Title" Margin="20" HorizontalTextAlignment="Center" Text="Game Stats"/>
 
             <Label TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Total Darts Thrown" />
             <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding DartsThrown}" FontSize="50" FontAttributes="Bold"/>
