@@ -49,7 +49,7 @@ namespace DartsPractice.ViewModels
 
             foreach (var target in newTargetList)
             {
-                target.Hits = initialState;
+                target.Hits = new List<int>();                
             }            
         }
 

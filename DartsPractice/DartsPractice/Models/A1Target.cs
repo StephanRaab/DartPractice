@@ -7,5 +7,6 @@ namespace DartsPractice.Models
     {
         public List<int> Hits { get; set; }
         public bool IsActive { get; set; }
+        public bool IsClosed { get; set; }
     }
 }
