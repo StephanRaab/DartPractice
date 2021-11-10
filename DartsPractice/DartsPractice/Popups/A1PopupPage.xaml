@@ -9,12 +9,12 @@
             <Label TextColor="Black" FontSize="Title" Margin="20" HorizontalTextAlignment="Center" Text="Game Stats"/>
 
             <Label TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Total Darts Thrown" />
-            <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding DartsThrown}" FontSize="50" FontAttributes="Bold"/>
+            <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding DartsThrown}" FontSize="80" FontAttributes="Bold"/>
 
             <Label TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Total Time" />
-            <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding TotalTimeTaken}" FontSize="50" FontAttributes="Bold"/>
+            <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding TotalTimeTaken}" FontSize="80" FontAttributes="Bold"/>
 
-            <Button 
+            <Button VerticalOptions="EndAndExpand"
                     BackgroundColor="LightGreen"
                     Text="New Game"
                     TextColor="Black"

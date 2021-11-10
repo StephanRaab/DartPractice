@@ -235,6 +235,8 @@ namespace DartsPractice.ViewModels
 
         private void TargetHit()
         {
+            ShowPopup();
+
             if (!_gameStarted)
                 _timer.Start();
 
