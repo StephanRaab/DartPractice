@@ -10,7 +10,7 @@ namespace DartsPractice.ViewModels
 {
     public class A1ViewModel : BaseViewModel
     {
-        List<int> initialState = new List<int> { 0,0,0,0,0 };
+        List<int> initialState = new List<int> { 0, 0, 0, 0, 0 };
         List<string> _targetList = new List<string> { "20", "19", "18", "17", "16", "15", "14", "13", "Bull" };
         public ICommand HitCommand { get; }
         public ICommand MissCommand { get; }
@@ -33,7 +33,7 @@ namespace DartsPractice.ViewModels
         private A1Target thirteentwentyTarget = new A1Target();
         private A1Target bullTarget = new A1Target();
 
-        List<A1Target> newTargetList = new List<A1Target>();        
+        List<A1Target> newTargetList = new List<A1Target>();
 
         private void setInitialState()
         {
@@ -49,18 +49,18 @@ namespace DartsPractice.ViewModels
 
             foreach (var target in newTargetList)
             {
-                target.Hits = new List<int>();                
-            }            
+                target.Hits = new List<int>();
+            }
         }
 
         private string getCurrentTarget()
         {
-            return _targetList[_currentTarget];          
+            return _targetList[_currentTarget];
         }
 
         private int getHitCount()
         {
-            var hitcount =  getScoringSegment().Hits.Where(x => x.Equals(1)).Count();
+            var hitcount = getScoringSegment().Hits.Where(x => x.Equals(1)).Count();
             return hitcount;
         }
 
@@ -71,46 +71,53 @@ namespace DartsPractice.ViewModels
 
         private void scoreSegment()
         {
+            var scoringSegment = getScoringSegment();
             int hitCount = getHitCount();
             hitCount++;
 
-            if (_targetList.Count == 0)
+            // if this hit closes with max hits, it shouldn't show up here again
+            if (hitCount == MAX_HITS)
             {
-                //game over
-                //show dialog with overview of total darts shot and time taken
-                Console.WriteLine("GAME OVER!!!");
-            } else if (hitCount == MAX_HITS) {                
-                Console.WriteLine($"{getCurrentTarget()} has been hit {hitCount}, it should now be closed.");
-                //remove option from list                
-                _targetList.RemoveAt(_currentTarget);
+                scoringSegment.IsClosed = true;
             }
-            else 
+
+            // remove old data
+            scoringSegment.Hits.Clear();
+
+            //add the hits
+            for (int i = 0; i < hitCount; i++)
             {
-                var scoringSegment = getScoringSegment();
-
-                // remove old data
-                scoringSegment.Hits.Clear();
-
-                //add the hits
-                for (int i = 0; i < hitCount; i++)
-                {
-                    scoringSegment.Hits.Add(1);
-                }
-
-                //add the remaining misses
-                for (int i = hitCount; i < MAX_HITS; i++)
-                {
-                    scoringSegment.Hits.Add(0);
-                }
+                scoringSegment.Hits.Add(1);
             }
+
+            //add the remaining misses
+            for (int i = hitCount; i < MAX_HITS; i++)
+            {
+                scoringSegment.Hits.Add(0);
+            }
+            //}
         }
 
-        private void setCurrentTarget()
+        private void checkTargetIsOpen()
+        {
+            goToNextTarget();
+
+            var scoringTarget = getScoringSegment();
+
+            if (scoringTarget.IsClosed)           
+                checkTargetIsOpen();            
+        }
+
+        private void goToNextTarget()
         {
             if (_currentTarget == LAST_ROUND)
+            {
                 _currentTarget = FIRST_ROUND;
+            }
             else
+            {
                 _currentTarget++;
+            }
         }
 
         public A1ViewModel()
@@ -131,7 +138,7 @@ namespace DartsPractice.ViewModels
             Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
 
             // set the new target
-            setCurrentTarget();
+            checkTargetIsOpen();
 
             //highlight and activate the new target
             getScoringSegment().IsActive = true;
@@ -154,7 +161,7 @@ namespace DartsPractice.ViewModels
             Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
 
             //set the new target
-            setCurrentTarget();
+            checkTargetIsOpen();
 
             // highlight the new active target
             getScoringSegment().IsActive = true;
