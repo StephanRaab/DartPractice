@@ -22,9 +22,11 @@
     <Folder Include="Views\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
+    <Folder Include="Popups\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Services\" />
     <None Remove="Rg.Plugins.Popup" />
+    <None Remove="Popups\" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DartsPractice.Popups.A1PopupPage" CloseWhenBackgroundIsClicked="False">
+    <Frame BackgroundColor="White" Opacity=".85" HasShadow="False" Margin="20">
+        <StackLayout>
+            <Label TextColor="Black" FontSize="100" Margin="20" HorizontalTextAlignment="Center" Text="Game Stats"/>
+
+            <Label TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Total Darts Thrown" />
+            <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding DartsThrown}" FontSize="50" FontAttributes="Bold"/>
+
+            <Label TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Total Time" />
+            <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding TotalTimeTaken}" FontSize="50" FontAttributes="Bold"/>
+
+            <Button 
+                    BackgroundColor="LightGreen"
+                    Text="New Game"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Command="{Binding NewGameCommand}"/>
+            <Button 
+                    BackgroundColor="DarkRed"
+                    Text="Quit to Menu"
+                    TextColor="white"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Command="{Binding ReturnHomeCommand}"/>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

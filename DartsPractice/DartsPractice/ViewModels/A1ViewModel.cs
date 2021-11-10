@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Timers;
 using System.Windows.Input;
 using DartsPractice.Models;
+using DartsPractice.Popups;
 using MvvmHelpers;
 using Xamarin.Forms;
 
@@ -10,13 +13,22 @@ namespace DartsPractice.ViewModels
 {
     public class A1ViewModel : BaseViewModel
     {
-        List<int> initialState = new List<int> { 0, 0, 0, 0, 0 };
         List<string> _targetList = new List<string> { "20", "19", "18", "17", "16", "15", "14", "13", "Bull" };
         public ICommand HitCommand { get; }
         public ICommand MissCommand { get; }
+        public ICommand ReturnHomeCommand { get; }
+        public ICommand NewGameCommand { get; }
+
         private int _currentTarget = 0;
         private int _roundCount = 0;
+        private bool _gameStarted = false;
+        private bool endOfGame = false;
         private int _closedSegmentCount = 0;
+
+        private string _dartsThrown;
+        private string _totalTimeTaken;
+        private Stopwatch _timer = new Stopwatch();
+        
         private const int FIRST_ROUND = 0;
         private const int MAX_HITS = 5;
         private const int LAST_ROUND = 8;
@@ -24,6 +36,18 @@ namespace DartsPractice.ViewModels
 
         //SlateGray = inactive
         //LightBlue = active
+
+        public string TotalTimeTaken
+        {
+            get => _totalTimeTaken;
+            set => SetProperty(ref _totalTimeTaken, value);
+        }
+
+        public string DartsThrown
+        {
+            get => _dartsThrown;
+            set => SetProperty(ref _dartsThrown, value);
+        }
 
         public A1Target twentyTarget = new A1Target();
         private A1Target nineteenTarget = new A1Target();
@@ -99,7 +123,6 @@ namespace DartsPractice.ViewModels
             {
                 scoringSegment.Hits.Add(0);
             }
-            //}
         }
 
         private void checkEndOfGame()
@@ -107,11 +130,42 @@ namespace DartsPractice.ViewModels
             if (_closedSegmentCount == TOTAL_TARGETS)
             {
                 // game over
+                _timer.Stop();
+                TotalTimeTaken = _timer.Elapsed.TotalMinutes.ToString();
+                endOfGame = true;
+                calculateTotalDartsThrown();
+
+                // show popup
+                ShowPopup();
+            }
+        }
+
+        private void calculateTotalDartsThrown()
+        {
+            DartsThrown = Convert.ToString(_roundCount * 3);
+        }
+
+        private void restartGame()
+        {
+            _roundCount = 0;
+            _currentTarget = 0;
+            _roundCount = 0;
+            _gameStarted = false;
+            endOfGame = false;
+
+            foreach (var target in newTargetList)
+            {
+                target.Hits = new List<int>();
+                target.IsActive = false;
+                target.IsClosed = false;
             }
         }
 
         private void checkTargetIsOpen()
         {
+            if (endOfGame)
+                return;
+
             goToNextTarget();
 
             var scoringTarget = getScoringSegment();
@@ -138,10 +192,15 @@ namespace DartsPractice.ViewModels
             setInitialState();
             HitCommand = new Command(TargetHit);
             MissCommand = new Command(TargetMissed);
+            ReturnHomeCommand = new Command(returnHomeCommand);
+            NewGameCommand = new Command(restartGame);
         }
 
         private void TargetMissed(object obj)
         {
+            if (!_gameStarted)
+                _timer.Start();
+
             Console.WriteLine($"Target was {getCurrentTarget()}");
             Console.WriteLine($"{getCurrentTarget()} has been hit {getHitCount()} times");
 
@@ -162,8 +221,22 @@ namespace DartsPractice.ViewModels
             Console.WriteLine($"New target is {getCurrentTarget()}\n");
         }
 
+        private async void ShowPopup()
+        {
+            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new A1PopupPage(), true);
+        }
+
+        private async void returnHomeCommand()
+        {
+            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
+            await Application.Current.MainPage.Navigation.PopAsync();
+        }
+
         private void TargetHit()
         {
+            if (!_gameStarted)
+                _timer.Start();
+
             scoreSegment();
             Console.WriteLine($"\nTarget was {getCurrentTarget()}");
             Console.WriteLine($"{getCurrentTarget()} has been hit {getHitCount()} times");
