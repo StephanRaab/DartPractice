@@ -16,9 +16,11 @@ namespace DartsPractice.ViewModels
         public ICommand MissCommand { get; }
         private int _currentTarget = 0;
         private int _roundCount = 0;
+        private int _closedSegmentCount = 0;
+        private const int FIRST_ROUND = 0;
         private const int MAX_HITS = 5;
         private const int LAST_ROUND = 8;
-        private const int FIRST_ROUND = 0;
+        private const int TOTAL_TARGETS = 9;
 
         //SlateGray = inactive
         //LightBlue = active
@@ -79,6 +81,8 @@ namespace DartsPractice.ViewModels
             if (hitCount == MAX_HITS)
             {
                 scoringSegment.IsClosed = true;
+                _closedSegmentCount++;
+                checkEndOfGame();
             }
 
             // remove old data
@@ -96,6 +100,14 @@ namespace DartsPractice.ViewModels
                 scoringSegment.Hits.Add(0);
             }
             //}
+        }
+
+        private void checkEndOfGame()
+        {
+            if (_closedSegmentCount == TOTAL_TARGETS)
+            {
+                // game over
+            }
         }
 
         private void checkTargetIsOpen()
