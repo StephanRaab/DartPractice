@@ -2,12 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DartsPractice.MainPage"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             BackgroundColor="Orange">
 
     <StackLayout Margin="20" Spacing="10">
-        <Button Text="RVB Scoring" Command="{Binding RVBCommand}"/>
-        <Button Text="A1 Drill" Command="{Binding A1Command}"/>
-        <Button Text="Post-It" Command="{Binding PostItCommand}"/>
-        <Button Text="Power Scoring" Command="{Binding PowerCommand}"/>
+        <Button BackgroundColor="White"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="RVB Scoring" Command="{Binding RVBCommand}"/>
+        <Button BackgroundColor="White"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="A1 Drill" Command="{Binding A1Command}"/>
+        <Button BackgroundColor="White"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="Post-It" Command="{Binding PostItCommand}"/>
+        <Button BackgroundColor="White"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="Power Scoring" Command="{Binding PowerCommand}"/>
     </StackLayout>
 </ContentPage>
