@@ -7,32 +7,30 @@
     BackgroundColor="Orange">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label Margin="0,0,0,20" Text="Number of Marks with 3 Darts" TextColor="White" HorizontalTextAlignment="Center"/>
-
-            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Scoring on" TextColor="White"/>
-            <Label HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding CurrentTarget}" FontSize="50" TextColor="White" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Target" TextColor="White"/>
+            <Label HorizontalOptions="Center" Margin="0,0,0,15" Text="{Binding CurrentTarget}" FontSize="100" TextColor="White" FontAttributes="Bold"/>
 
             <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Current Total" TextColor="White"/>
-            <Label HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding RunningTotal}" FontSize="50" TextColor="White" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" Margin="0,0,0,15" Text="{Binding RunningTotal}" FontSize="60" TextColor="White" FontAttributes="Bold"/>
 
-            <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*">
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="0" Text="1" CommandParameter="1" Command="{Binding ScoreCommand}"/>
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="0" Text="2" CommandParameter="2" Command="{Binding ScoreCommand}"/>
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="0" Text="3" CommandParameter="3" Command="{Binding ScoreCommand}"/>
+            <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*" VerticalOptions="FillAndExpand">
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="0" Text="1" FontSize="Large" FontAttributes="Bold" CommandParameter="1" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="0" Text="2" FontSize="Large" FontAttributes="Bold" CommandParameter="2" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="0" Text="3" FontSize="Large" FontAttributes="Bold" CommandParameter="3" Command="{Binding ScoreCommand}"/>
 
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="1" Text="4" CommandParameter="4" Command="{Binding ScoreCommand}"/>
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="1" Text="5" CommandParameter="5" Command="{Binding ScoreCommand}"/>
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="1" Text="6" CommandParameter="6" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="1" Text="4" FontSize="Large" FontAttributes="Bold" CommandParameter="4" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="1" Text="5" FontSize="Large" FontAttributes="Bold" CommandParameter="5" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="1" Text="6" FontSize="Large" FontAttributes="Bold" CommandParameter="6" Command="{Binding ScoreCommand}"/>
 
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="2" Text="7" CommandParameter="7" Command="{Binding ScoreCommand}"/>
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="2" Text="8" CommandParameter="8" Command="{Binding ScoreCommand}"/>
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="2" Text="9" CommandParameter="9" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="2" Text="7" FontSize="Large" FontAttributes="Bold" CommandParameter="7" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="2" Text="8" FontSize="Large" FontAttributes="Bold" CommandParameter="8" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="2" Grid.Row="2" Text="9" FontSize="Large" FontAttributes="Bold" CommandParameter="9" Command="{Binding ScoreCommand}"/>
 
-                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="3" Text="0" Command="{Binding ScoreCommand}"/>
+                <Button BackgroundColor="White" TextColor="#333" Grid.Column="1" Grid.Row="3" Text="0" FontSize="Large" FontAttributes="Bold" Command="{Binding ScoreCommand}"/>
             </Grid>
 
             <StackLayout
-                Margin="50"
+                Margin="10"
                 IsVisible="{Binding ShowEndOptions}"
                 Spacing="10"
                 HorizontalOptions="CenterAndExpand"
