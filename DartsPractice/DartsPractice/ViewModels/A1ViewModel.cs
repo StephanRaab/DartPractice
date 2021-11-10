@@ -57,7 +57,7 @@ namespace DartsPractice.ViewModels
 
         private int getHitCount()
         {
-            var hitcount =  newTargetList[_currentTarget].Hits.Where(x => x.Equals(1)).Count();
+            var hitcount =  getScoringSegment().Hits.Where(x => x.Equals(1)).Count();
             return hitcount;
         }
 
@@ -78,7 +78,6 @@ namespace DartsPractice.ViewModels
                 Console.WriteLine("GAME OVER!!!");
             } else if (hitCount == MAX_HITS) {                
                 Console.WriteLine($"{getCurrentTarget()} has been hit {hitCount}, it should now be closed.");
-
                 //remove option from list                
                 _targetList.RemoveAt(_currentTarget);
             }
