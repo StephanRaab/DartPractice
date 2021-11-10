@@ -20,6 +20,9 @@ namespace DartsPractice.ViewModels
         private const int LAST_ROUND = 8;
         private const int FIRST_ROUND = 0;
 
+        //SlateGray = inactive
+        //LightBlue = active
+
         public A1Target twentyTarget = new A1Target();
         private A1Target nineteenTarget = new A1Target();
         private A1Target eighteenTarget = new A1Target();
@@ -102,7 +105,7 @@ namespace DartsPractice.ViewModels
             }
         }
 
-        private void increaseCurrentTarget()
+        private void setCurrentTarget()
         {
             if (_currentTarget == LAST_ROUND)
                 _currentTarget = FIRST_ROUND;
@@ -123,22 +126,44 @@ namespace DartsPractice.ViewModels
             Console.WriteLine($"Target was {getCurrentTarget()}");
             Console.WriteLine($"{getCurrentTarget()} has been hit {getHitCount()} times");
 
-            increaseCurrentTarget();
+            // deactivate the last target
+            getScoringSegment().IsActive = false;
+            Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
+
+            // set the new target
+            setCurrentTarget();
+
+            //highlight and activate the new target
+            getScoringSegment().IsActive = true;
+            Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
+
+            //increase total round count
             _roundCount++;
 
-            Console.WriteLine($"New target is {getCurrentTarget()}");
+            Console.WriteLine($"New target is {getCurrentTarget()}\n");
         }
 
         private void TargetHit()
         {
             scoreSegment();
-            Console.WriteLine($"Target was {getCurrentTarget()}");
+            Console.WriteLine($"\nTarget was {getCurrentTarget()}");
             Console.WriteLine($"{getCurrentTarget()} has been hit {getHitCount()} times");
 
-            increaseCurrentTarget();
+            // deactivate the last target
+            getScoringSegment().IsActive = false;
+            Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
+
+            //set the new target
+            setCurrentTarget();
+
+            // highlight the new active target
+            getScoringSegment().IsActive = true;
+            Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
+
+            //increase total round count
             _roundCount++;
 
-            Console.WriteLine($"New target is {getCurrentTarget()}");
+            Console.WriteLine($"New target is {getCurrentTarget()}\n");
         }
     }
 }

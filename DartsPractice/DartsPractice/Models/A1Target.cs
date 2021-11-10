@@ -6,5 +6,6 @@ namespace DartsPractice.Models
     public class A1Target
     {
         public List<int> Hits { get; set; }
+        public bool IsActive { get; set; }
     }
 }
