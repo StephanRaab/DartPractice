@@ -16,7 +16,7 @@
                 FontAttributes="Bold"
                 FontSize="Large"
                 Text="A1 Drill" Command="{Binding A1Command}"/>
-        <Button BackgroundColor="White"
+        <!--<Button BackgroundColor="White"
                 TextColor="Black"
                 FontAttributes="Bold"
                 FontSize="Large"
@@ -25,6 +25,6 @@
                 TextColor="Black"
                 FontAttributes="Bold"
                 FontSize="Large"
-                Text="Power Scoring" Command="{Binding PowerCommand}"/>
+                Text="Power Scoring" Command="{Binding PowerCommand}"/>-->
     </StackLayout>
 </ContentPage>

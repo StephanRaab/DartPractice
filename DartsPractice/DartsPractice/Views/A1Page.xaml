@@ -6,7 +6,7 @@
     Title="{Binding Title}"
     BackgroundColor="Orange">
     <ContentPage.Content>
-        <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,.3*" Margin="20">
+        <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,.3*" Margin="20">            
             <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="0" Grid.Column="0">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="20" FontSize="Title" FontAttributes="Bold"/>
@@ -16,7 +16,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <Frame Padding="8" BackgroundColor="LightBlue" HasShadow="False" Grid.Row="0" Grid.Column="1">
@@ -28,7 +28,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Orange" Opacity="1"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="0" Grid.Column="2">
@@ -40,7 +40,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
@@ -53,7 +53,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="1">
@@ -65,7 +65,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="2">
@@ -77,10 +77,10 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
-            
+
             <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="0">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="14" FontSize="Title" FontAttributes="Bold"/>
@@ -90,7 +90,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="1">
@@ -102,7 +102,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="2">
@@ -114,7 +114,7 @@
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
                         <Rectangle HorizontalOptions="CenterAndExpand" WidthRequest="25" HeightRequest="25" BackgroundColor="Black" Opacity=".2"/>
-                    </StackLayout>                    
+                    </StackLayout>
                 </StackLayout>
             </Frame>
             <Button Grid.Row="3"
@@ -124,6 +124,7 @@
                     TextColor="Black"
                     FontAttributes="Bold"
                     FontSize="Large"
+                    IsVisible="{Binding HideButtons}"
                     Command="{Binding HitCommand}"/>
             <Button Grid.Row="3"
                     Grid.Column="1"
@@ -133,7 +134,35 @@
                     TextColor="white"
                     FontAttributes="Bold"
                     FontSize="Large"
+                    IsVisible="{Binding HideButtons}"
                     Command="{Binding MissCommand}"/>
+
+            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" IsVisible="{Binding ShowPopup}" BackgroundColor="White" Opacity=".85" HasShadow="False">
+                <StackLayout>
+                    <Label TextColor="Black" FontSize="Title" Margin="20" HorizontalTextAlignment="Center" Text="Game Stats"/>
+
+                    <Label TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Total Darts Thrown" />
+                    <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding DartsThrown}" FontSize="80" FontAttributes="Bold"/>
+
+                    <Label TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Total Time" />
+                    <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding TotalTimeTaken}" FontSize="70" FontAttributes="Bold"/>
+
+                    <Button VerticalOptions="EndAndExpand"
+                    BackgroundColor="LightGreen"
+                    Text="New Game"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Command="{Binding NewGameCommand}"/>
+                    <Button 
+                    BackgroundColor="DarkRed"
+                    Text="Quit to Menu"
+                    TextColor="white"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Command="{Binding ReturnHomeCommand}"/>
+                </StackLayout>
+            </Frame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

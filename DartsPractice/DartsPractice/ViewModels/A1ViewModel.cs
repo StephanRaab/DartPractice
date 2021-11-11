@@ -22,7 +22,8 @@ namespace DartsPractice.ViewModels
         private int _currentTarget = 0;
         private int _roundCount = 0;
         private bool _gameStarted = false;
-        private bool endOfGame = false;
+        private bool _endOfGame = false;
+        private bool _showPopup = false;
         private int _closedSegmentCount = 0;
 
         private string _dartsThrown;
@@ -36,6 +37,27 @@ namespace DartsPractice.ViewModels
 
         //SlateGray = inactive
         //LightBlue = active
+
+        public bool HideButtons
+        {
+            get => !_showPopup;
+            set
+            {
+                HideButtons = !value;
+                OnPropertyChanged(nameof(HideButtons));
+            }            
+        }
+
+        public bool ShowPopup
+        {
+            get => _showPopup;
+            set
+            {
+                _showPopup = value;
+                OnPropertyChanged(nameof(ShowPopup));
+                OnPropertyChanged(nameof(HideButtons));
+            }
+        }
 
         public string TotalTimeTaken
         {
@@ -131,13 +153,13 @@ namespace DartsPractice.ViewModels
             {
                 // game over
                 _timer.Stop();
-                TotalTimeTaken = _timer.Elapsed.TotalMinutes.ToString(@"hh\:mm\:ss");
+                TotalTimeTaken = _timer.Elapsed.ToString(@"hh\:mm\:ss");
 
-                endOfGame = true;
+                _endOfGame = true;
                 calculateTotalDartsThrown();
 
                 // show popup
-                ShowPopup();
+                ShowPopup = true;
             }
         }
 
@@ -152,7 +174,8 @@ namespace DartsPractice.ViewModels
             _currentTarget = 0;
             _roundCount = 0;
             _gameStarted = false;
-            endOfGame = false;
+            _endOfGame = false;
+            ShowPopup = false;
 
             foreach (var target in newTargetList)
             {
@@ -164,7 +187,7 @@ namespace DartsPractice.ViewModels
 
         private void checkTargetIsOpen()
         {
-            if (endOfGame)
+            if (_endOfGame)
                 return;
 
             goToNextTarget();
@@ -222,21 +245,13 @@ namespace DartsPractice.ViewModels
             Console.WriteLine($"New target is {getCurrentTarget()}\n");
         }
 
-        private async void ShowPopup()
-        {
-            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PushAsync(new A1PopupPage(), true);
-        }
-
         private async void returnHomeCommand()
         {
-            await Rg.Plugins.Popup.Services.PopupNavigation.Instance.PopAsync();
             await Application.Current.MainPage.Navigation.PopAsync();
         }
 
         private void TargetHit()
         {
-            ShowPopup();
-
             if (!_gameStarted)
                 _timer.Start();
 
