@@ -5,7 +5,6 @@ using System.Linq;
 using System.Timers;
 using System.Windows.Input;
 using DartsPractice.Models;
-using DartsPractice.Popups;
 using MvvmHelpers;
 using Xamarin.Forms;
 
