@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Timers;
@@ -96,7 +97,7 @@ namespace DartsPractice.ViewModels
 
             foreach (var target in newTargetList)
             {
-                target.Hits = new List<int>();
+                target.Hits = new ObservableCollection<int>();
             }
         }
 
@@ -178,7 +179,7 @@ namespace DartsPractice.ViewModels
 
             foreach (var target in newTargetList)
             {
-                target.Hits = new List<int>();
+                target.Hits = new ObservableCollection<int>();
                 target.IsActive = false;
                 target.IsClosed = false;
             }
