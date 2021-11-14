@@ -23,8 +23,9 @@ namespace DartsPractice.ViewModels
         private int _roundCount = 0;
         private bool _gameStarted = false;
         private bool _endOfGame = false;
-        private bool _showPopup = false;
+        private bool _showEndgameScreen = false;
         private int _closedSegmentCount = 0;
+        private List<A1Target> newTargetList = new List<A1Target>();
 
         private string _dartsThrown;
         private string _totalTimeTaken;
@@ -37,7 +38,7 @@ namespace DartsPractice.ViewModels
 
         public bool HideButtons
         {
-            get => !_showPopup;
+            get => !_showEndgameScreen;
             set
             {
                 HideButtons = !value;
@@ -45,14 +46,14 @@ namespace DartsPractice.ViewModels
             }            
         }
 
-        public bool ShowPopup
+        public bool ShowEndgameScreen
         {
-            get => _showPopup;
+            get => _showEndgameScreen;
             set
             {
-                if (_showPopup != value)
-                    _showPopup = value;
-                    OnPropertyChanged(nameof(ShowPopup));
+                if (_showEndgameScreen != value)
+                    _showEndgameScreen = value;
+                    OnPropertyChanged(nameof(ShowEndgameScreen));
                     OnPropertyChanged(nameof(HideButtons));
             }
         }
@@ -70,6 +71,7 @@ namespace DartsPractice.ViewModels
         }
 
         private A1Target _twentyTarget = new A1Target();
+
         public A1Target TwentyTarget
         {
             get => _twentyTarget;
@@ -135,40 +137,32 @@ namespace DartsPractice.ViewModels
             return hitcount;
         }
 
-        private A1Target getScoringSegment()
-        {            
-            switch (_currentTarget)
-            {
-                case 0:
-                    return TwentyTarget;
-                case 1:
-                    return NineteenTarget;
-                case 2:
-                    return EighteenTarget;
-                case 3:
-                    return SeventeenTarget;
-                case 4:
-                    return SixteenTarget;
-                case 5:
-                    return FifteenTarget;
-                case 6:
-                    return FourteenTarget;
-                case 7:
-                    return ThirteenTarget;
-                case 8:
-                    return BullTarget;
-                default:
-                    break;
-            }
+        private void setInitialState()
+        {
+            newTargetList.Add(TwentyTarget);
+            newTargetList.Add(NineteenTarget);
+            newTargetList.Add(EighteenTarget);
+            newTargetList.Add(SeventeenTarget);
+            newTargetList.Add(SixteenTarget);
+            newTargetList.Add(FifteenTarget);
+            newTargetList.Add(FourteenTarget);
+            newTargetList.Add(ThirteenTarget);
+            newTargetList.Add(BullTarget);
+            TwentyTarget.IsActive = true;
+        }
 
-            return null;
+        private A1Target getScoringSegment()
+        {
+            return newTargetList[_currentTarget];             
         }
 
         private void scoreSegment()
-        {
+        {            
             var scoringSegment = getScoringSegment();
+            ObservableCollection<bool> hits = new ObservableCollection<bool>();
             int hitCount = getHitCount();
             hitCount++;
+            _roundCount++;
 
             // if this hit closes with max hits, it shouldn't show up here again
             if (hitCount == MAX_HITS)
@@ -176,22 +170,21 @@ namespace DartsPractice.ViewModels
                 scoringSegment.IsClosed = true;
                 _closedSegmentCount++;
                 checkEndOfGame();
-            }
-
-            // remove old data
-            scoringSegment.Hits.Clear();
+            }            
 
             //add the hits
             for (int i = 0; i < hitCount; i++)
             {
-                scoringSegment.Hits.Add(true);
+                hits.Add(true);
             }
 
-            //add the remaining misses
+            //add the empty hits
             for (int i = hitCount; i < MAX_HITS; i++)
             {
-                scoringSegment.Hits.Add(false);
+                hits.Add(false);
             }
+
+            scoringSegment.Hits = hits;
         }
 
         private void checkEndOfGame()
@@ -205,8 +198,8 @@ namespace DartsPractice.ViewModels
                 _endOfGame = true;
                 calculateTotalDartsThrown();
 
-                // show popup
-                ShowPopup = true;
+                // show endgame screen
+                ShowEndgameScreen = true;
             }
         }
 
@@ -221,12 +214,17 @@ namespace DartsPractice.ViewModels
             _roundCount = 0;
             _gameStarted = false;
             _endOfGame = false;
-            ShowPopup = false;
+            _closedSegmentCount = 0;
+            ShowEndgameScreen = false;
 
-            //set targets to empty, inactive and closed
-            //target.Hits = new ObservableCollection<bool> { false, false, false, false, false};
-            //target.IsActive = false;
-            //target.IsClosed = false;            
+            foreach (var target in newTargetList)
+            {
+                target.Hits = new ObservableCollection<bool>() { false, false, false, false, false};
+                target.IsActive = false;
+                target.IsClosed = false;
+            }
+
+            TwentyTarget.IsActive = true;
         }
 
         private void checkTargetIsOpen()
@@ -257,6 +255,7 @@ namespace DartsPractice.ViewModels
         public A1ViewModel()
         {
             Title = "A1 - Practice Routine";
+            setInitialState();
             HitCommand = new Command(TargetHit);
             MissCommand = new Command(TargetMissed);
             ReturnHomeCommand = new Command(returnHomeCommand);
@@ -275,15 +274,16 @@ namespace DartsPractice.ViewModels
             getScoringSegment().IsActive = false;
             Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
 
+            //increase total round count
+            _roundCount++;
+            Console.WriteLine($"roundcount: {_roundCount}");
+
             // set the new target
             checkTargetIsOpen();
 
             //highlight and activate the new target
             getScoringSegment().IsActive = true;
             Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
-
-            //increase total round count
-            _roundCount++;
 
             Console.WriteLine($"New target is {getCurrentTarget()}\n");
         }
@@ -304,7 +304,9 @@ namespace DartsPractice.ViewModels
 
             // deactivate the last target
             getScoringSegment().IsActive = false;
-            Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
+            Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");            
+
+            Console.WriteLine($"roundcount: {_roundCount}");
 
             //set the new target
             checkTargetIsOpen();
@@ -312,9 +314,6 @@ namespace DartsPractice.ViewModels
             // highlight the new active target
             getScoringSegment().IsActive = true;
             Console.WriteLine($"{getCurrentTarget()} is active: {getScoringSegment().IsActive}");
-
-            //increase total round count
-            _roundCount++;
 
             Console.WriteLine($"New target is {getCurrentTarget()}\n");
         }

@@ -165,7 +165,7 @@
                     IsVisible="{Binding HideButtons}"
                     Command="{Binding MissCommand}"/>
 
-            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" IsVisible="{Binding ShowPopup}" BackgroundColor="White" Opacity=".85" HasShadow="False">
+            <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="4" IsVisible="{Binding ShowEndgameScreen}" BackgroundColor="White" Opacity=".95" HasShadow="False">
                 <StackLayout>
                     <Label TextColor="Black" FontSize="Title" Margin="20" HorizontalTextAlignment="Center" Text="Game Stats"/>
 
