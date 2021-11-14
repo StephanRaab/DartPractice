@@ -6,8 +6,8 @@ namespace DartsPractice.Models
 {
     public class A1Target
     {
-        public ObservableCollection<bool> Hits { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsClosed { get; set; }
+        public ObservableCollection<bool> Hits { get; set; } = new ObservableCollection<bool> { false, false, false, false, false };
+        public bool IsActive { get; set; } = false;
+        public bool IsClosed { get; set; } = false;
     }
 }

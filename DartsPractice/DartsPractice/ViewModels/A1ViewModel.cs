@@ -123,19 +123,6 @@ namespace DartsPractice.ViewModels
             set => SetProperty(ref _bullTarget, value);
         }
 
-        private void setInitialState()
-        {
-            TwentyTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            NineteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            EighteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            SeventeenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            SixteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            FifteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            FourteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            ThirteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-            BullTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
-        }
-
         private string getCurrentTarget()
         {
             return _targetList[_currentTarget];
@@ -269,7 +256,6 @@ namespace DartsPractice.ViewModels
         public A1ViewModel()
         {
             Title = "A1 - Practice Routine";
-            setInitialState();
             HitCommand = new Command(TargetHit);
             MissCommand = new Command(TargetMissed);
             ReturnHomeCommand = new Command(returnHomeCommand);
