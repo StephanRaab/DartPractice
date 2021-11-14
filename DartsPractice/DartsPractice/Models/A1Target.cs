@@ -15,8 +15,10 @@ namespace DartsPractice.Models
             get => _hits;
             set {
                 if (value != _hits)
+                {
                     _hits = value;
                     OnPropertyChanged(nameof(Hits));
+                }
             } 
         }
 
@@ -27,12 +29,26 @@ namespace DartsPractice.Models
             set
             {
                 if (_isActive != value)
+                {
                     _isActive = value;
-                OnPropertyChanged(nameof(IsActive));
+                    OnPropertyChanged(nameof(IsActive));
+                }
             }
         }
 
-        public bool IsClosed { get; set; }
+        private bool _isClosed = false;
+        public bool IsClosed
+        {
+            get => _isClosed;
+            set
+            {
+                if (_isClosed != value)
+                {
+                    _isClosed = value;
+                    OnPropertyChanged(nameof(IsClosed));
+                }
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -11,12 +11,17 @@
         <ResourceDictionary>
             <xct:BoolToObjectConverter x:Key="IsActiveConverter" TrueObject="LightBlue" FalseObject="SlateGray" />
             <xct:BoolToObjectConverter x:Key="IsHitConverter" TrueObject="{StaticResource TargetHit}" FalseObject="{StaticResource TargetMissed}" />
+            <xct:BoolToObjectConverter x:Key="IsSegmentClosed" TrueObject="0.3" FalseObject="1"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,.3*" Margin="20">            
-            <Frame Padding="8" BackgroundColor="{Binding TwentyTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="0">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding TwentyTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding TwentyTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False"
+                   Grid.Row="0" Grid.Column="0">
                 <StackLayout>
                     <Label Text="20" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -30,7 +35,10 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="{Binding NineteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="1">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding NineteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding NineteenTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="0" Grid.Column="1">
                 <StackLayout>
                     <Label Text="19" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -44,7 +52,10 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="{Binding EighteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="2">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding EighteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding EighteenTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="0" Grid.Column="2">
                 <StackLayout>
                     <Label Text="18" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -59,7 +70,10 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Padding="8" BackgroundColor="{Binding SeventeenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="0">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding SeventeenTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding SeventeenTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="1" Grid.Column="0">
                 <StackLayout>
                     <Label Text="17" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -73,7 +87,10 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="{Binding SixteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="1">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding SixteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding SixteenTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="1" Grid.Column="1">
                 <StackLayout>
                     <Label Text="16" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -87,7 +104,10 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="{Binding FifteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="2">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding FifteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding FifteenTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="1" Grid.Column="2">
                 <StackLayout>
                     <Label Text="15" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -102,7 +122,10 @@
                 </StackLayout>
             </Frame>
 
-            <Frame Padding="8" BackgroundColor="{Binding FourteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="0">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding FourteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding FourteenTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="2" Grid.Column="0">
                 <StackLayout>
                     <Label Text="14" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -116,7 +139,10 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="{Binding ThirteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="1">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding ThirteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding ThirteenTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="2" Grid.Column="1">
                 <StackLayout>
                     <Label Text="13" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -130,7 +156,10 @@
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="{Binding BullTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="2">
+            <Frame Padding="12"
+                   BackgroundColor="{Binding BullTarget.IsActive, Converter={StaticResource IsActiveConverter}}"
+                   Opacity="{Binding BullTarget.IsClosed, Converter={StaticResource IsSegmentClosed}}"
+                   HasShadow="False" Grid.Row="2" Grid.Column="2">
                 <StackLayout>
                     <Label Text="Bull" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
@@ -147,21 +176,15 @@
 
             <Button Grid.Row="3"
                     Grid.Column="0"
-                    BackgroundColor="LightGreen"
-                    Text="Hit"
-                    TextColor="Black"
-                    FontAttributes="Bold"
-                    FontSize="Large"
+                    Style="{StaticResource GreenBtn}"                    
+                    Text="HIT"                                                            
                     IsVisible="{Binding HideButtons}"
                     Command="{Binding HitCommand}"/>
             <Button Grid.Row="3"
                     Grid.Column="1"
                     Grid.ColumnSpan="2"
-                    BackgroundColor="DarkRed"
-                    Text="Miss"
-                    TextColor="white"
-                    FontAttributes="Bold"
-                    FontSize="Large"
+                    Style="{StaticResource RedBtn}"
+                    Text="MISS"                                       
                     IsVisible="{Binding HideButtons}"
                     Command="{Binding MissCommand}"/>
 
@@ -176,19 +199,13 @@
                     <Label TextColor="Black" HorizontalOptions="Center" Margin="0,0,0,40" Text="{Binding TotalTimeTaken}" FontSize="70" FontAttributes="Bold"/>
 
                     <Button VerticalOptions="EndAndExpand"
-                    BackgroundColor="LightGreen"
-                    Text="New Game"
-                    TextColor="Black"
-                    FontAttributes="Bold"
-                    FontSize="Large"
-                    Command="{Binding NewGameCommand}"/>
-                    <Button 
-                    BackgroundColor="DarkRed"
-                    Text="Quit to Menu"
-                    TextColor="white"
-                    FontAttributes="Bold"
-                    FontSize="Large"
-                    Command="{Binding ReturnHomeCommand}"/>
+                            Style="{StaticResource GreenBtn}"
+                            Text="New Game"                        
+                            Command="{Binding NewGameCommand}"/>
+                    <Button
+                        Style="{StaticResource RedBtn}"
+                        Text="Quit to Menu"                                                                        
+                        Command="{Binding ReturnHomeCommand}"/>
                 </StackLayout>
             </Frame>
         </Grid>
