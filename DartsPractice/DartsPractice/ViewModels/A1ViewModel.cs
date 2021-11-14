@@ -33,10 +33,7 @@ namespace DartsPractice.ViewModels
         private const int FIRST_ROUND = 0;
         private const int MAX_HITS = 5;
         private const int LAST_ROUND = 8;
-        private const int TOTAL_TARGETS = 9;
-
-        //SlateGray = inactive
-        //LightBlue = active
+        private const int TOTAL_TARGETS = 9;    
 
         public bool HideButtons
         {
@@ -71,34 +68,72 @@ namespace DartsPractice.ViewModels
             set => SetProperty(ref _dartsThrown, value);
         }
 
-        public A1Target twentyTarget = new A1Target();
-        private A1Target nineteenTarget = new A1Target();
-        private A1Target eighteenTarget = new A1Target();
-        private A1Target seventeenTarget = new A1Target();
-        private A1Target sixteenTarget = new A1Target();
-        private A1Target fifteenTarget = new A1Target();
-        private A1Target fourteenTarget = new A1Target();
-        private A1Target thirteentwentyTarget = new A1Target();
-        private A1Target bullTarget = new A1Target();
-
-        List<A1Target> newTargetList = new List<A1Target>();
+        private A1Target _twentyTarget = new A1Target();
+        public A1Target TwentyTarget
+        {
+            get => _twentyTarget;
+            set => SetProperty(ref _twentyTarget, value);
+        }
+        private A1Target _nineteenTarget = new A1Target();
+        public A1Target NineteenTarget
+        {
+            get => _nineteenTarget;
+            set => SetProperty(ref _nineteenTarget, value);
+        }
+        private A1Target _eighteenTarget = new A1Target();
+        public A1Target EighteenTarget
+        {
+            get => _eighteenTarget;
+            set => SetProperty(ref _eighteenTarget, value);
+        }
+        private A1Target _seventeenTarget = new A1Target();
+        public A1Target SeventeenTarget
+        {
+            get => _seventeenTarget;
+            set => SetProperty(ref _seventeenTarget, value);
+        }
+        private A1Target _sixteenTarget = new A1Target();
+        public A1Target SixteenTarget
+        {
+            get => _sixteenTarget;
+            set => SetProperty(ref _sixteenTarget, value);
+        }
+        private A1Target _fifteenTarget = new A1Target();
+        public A1Target FifteenTarget
+        {
+            get => _fifteenTarget;
+            set => SetProperty(ref _fifteenTarget, value);
+        }
+        private A1Target _fourteenTarget = new A1Target();
+        public A1Target FourteenTarget
+        {
+            get => _fourteenTarget;
+            set => SetProperty(ref _fourteenTarget, value);
+        }
+        private A1Target _thirteenTarget = new A1Target();
+        public A1Target ThirteenTarget
+        {
+            get => _thirteenTarget;
+            set => SetProperty(ref _thirteenTarget, value);
+        }
+        private A1Target _bullTarget = new A1Target();
+        public A1Target BullTarget
+        {
+            get => _bullTarget;
+            set => SetProperty(ref _bullTarget, value);
+        }
 
         private void setInitialState()
         {
-            newTargetList.Add(twentyTarget);
-            newTargetList.Add(nineteenTarget);
-            newTargetList.Add(eighteenTarget);
-            newTargetList.Add(seventeenTarget);
-            newTargetList.Add(sixteenTarget);
-            newTargetList.Add(fifteenTarget);
-            newTargetList.Add(fourteenTarget);
-            newTargetList.Add(thirteentwentyTarget);
-            newTargetList.Add(bullTarget);
-
-            foreach (var target in newTargetList)
-            {
-                target.Hits = new ObservableCollection<int>();
-            }
+            TwentyTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            NineteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            EighteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            SeventeenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            SixteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            FifteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            FourteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            ThirteenTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
+            BullTarget.Hits = new ObservableCollection<bool>() { false, false, false, false, false };
         }
 
         private string getCurrentTarget()
@@ -108,13 +143,37 @@ namespace DartsPractice.ViewModels
 
         private int getHitCount()
         {
-            var hitcount = getScoringSegment().Hits.Where(x => x.Equals(1)).Count();
+            var hitcount = getScoringSegment().Hits.Where(x => x.Equals(true)).Count();
             return hitcount;
         }
 
         private A1Target getScoringSegment()
-        {
-            return newTargetList[_currentTarget];
+        {            
+            switch (_currentTarget)
+            {
+                case 0:
+                    return TwentyTarget;
+                case 1:
+                    return NineteenTarget;
+                case 2:
+                    return EighteenTarget;
+                case 3:
+                    return SeventeenTarget;
+                case 4:
+                    return SixteenTarget;
+                case 5:
+                    return FifteenTarget;
+                case 6:
+                    return FourteenTarget;
+                case 7:
+                    return ThirteenTarget;
+                case 8:
+                    return BullTarget;
+                default:
+                    break;
+            }
+
+            return null;
         }
 
         private void scoreSegment()
@@ -137,13 +196,13 @@ namespace DartsPractice.ViewModels
             //add the hits
             for (int i = 0; i < hitCount; i++)
             {
-                scoringSegment.Hits.Add(1);
+                scoringSegment.Hits.Add(true);
             }
 
             //add the remaining misses
             for (int i = hitCount; i < MAX_HITS; i++)
             {
-                scoringSegment.Hits.Add(0);
+                scoringSegment.Hits.Add(false);
             }
         }
 
@@ -169,20 +228,17 @@ namespace DartsPractice.ViewModels
         }
 
         private void restartGame()
-        {
-            _roundCount = 0;
+        {            
             _currentTarget = 0;
             _roundCount = 0;
             _gameStarted = false;
             _endOfGame = false;
             ShowPopup = false;
 
-            foreach (var target in newTargetList)
-            {
-                target.Hits = new ObservableCollection<int>();
-                target.IsActive = false;
-                target.IsClosed = false;
-            }
+            //set targets to empty, inactive and closed
+            //target.Hits = new ObservableCollection<bool> { false, false, false, false, false};
+            //target.IsActive = false;
+            //target.IsClosed = false;            
         }
 
         private void checkTargetIsOpen()
