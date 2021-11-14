@@ -50,9 +50,10 @@ namespace DartsPractice.ViewModels
             get => _showPopup;
             set
             {
-                _showPopup = value;
-                OnPropertyChanged(nameof(ShowPopup));
-                OnPropertyChanged(nameof(HideButtons));
+                if (_showPopup != value)
+                    _showPopup = value;
+                    OnPropertyChanged(nameof(ShowPopup));
+                    OnPropertyChanged(nameof(HideButtons));
             }
         }
 
