@@ -18,7 +18,7 @@
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,.3*" Margin="20">            
             <Frame Padding="8" BackgroundColor="{Binding TwentyTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="0">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="20" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="20" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding TwentyTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -32,7 +32,7 @@
             </Frame>
             <Frame Padding="8" BackgroundColor="{Binding NineteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="1">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="19" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="19" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding NineteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -46,7 +46,7 @@
             </Frame>
             <Frame Padding="8" BackgroundColor="{Binding EighteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="2">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="18" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="18" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding EighteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -61,7 +61,7 @@
 
             <Frame Padding="8" BackgroundColor="{Binding SeventeenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="0">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="17" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="17" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding SeventeenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -75,7 +75,7 @@
             </Frame>
             <Frame Padding="8" BackgroundColor="{Binding SixteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="1">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="16" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="16" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding SixteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -89,7 +89,7 @@
             </Frame>
             <Frame Padding="8" BackgroundColor="{Binding FifteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="2">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="15" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="15" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding FifteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -104,7 +104,7 @@
 
             <Frame Padding="8" BackgroundColor="{Binding FourteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="0">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="14" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="14" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding FourteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -118,7 +118,7 @@
             </Frame>
             <Frame Padding="8" BackgroundColor="{Binding ThirteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="1">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="13" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="13" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding ThirteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
@@ -132,7 +132,7 @@
             </Frame>
             <Frame Padding="8" BackgroundColor="{Binding BullTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="2">
                 <StackLayout>
-                    <Label HorizontalOptions="Center" Text="Bull" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Text="Bull" Style="{StaticResource TargetTitle}"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
                             <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding BullTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
