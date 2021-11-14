@@ -3,138 +3,148 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="DartsPractice.Views.A1Page"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     Title="{Binding Title}"
     BackgroundColor="Orange">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:BoolToObjectConverter x:Key="IsActiveConverter" TrueObject="LightBlue" FalseObject="SlateGray" />
+            <xct:BoolToObjectConverter x:Key="IsHitConverter" TrueObject="{StaticResource TargetHit}" FalseObject="{StaticResource TargetMissed}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,.3*" Margin="20">            
-            <Frame Padding="8" BackgroundColor="{Binding A1Target.IsActive}" HasShadow="False" Grid.Row="0" Grid.Column="0">
+            <Frame Padding="8" BackgroundColor="{Binding TwentyTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="0">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="20" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding TwentyTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding TwentyTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding TwentyTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding TwentyTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding TwentyTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="LightBlue" HasShadow="False" Grid.Row="0" Grid.Column="1">
+            <Frame Padding="8" BackgroundColor="{Binding NineteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="1">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="19" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding NineteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding NineteenTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding NineteenTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding NineteenTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding NineteenTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="0" Grid.Column="2">
+            <Frame Padding="8" BackgroundColor="{Binding EighteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="0" Grid.Column="2">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="18" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding EighteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding EighteenTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding EighteenTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding EighteenTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding EighteenTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
 
-            <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="0">
+            <Frame Padding="8" BackgroundColor="{Binding SeventeenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="0">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="17" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding SeventeenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding SeventeenTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding SeventeenTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding SeventeenTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding SeventeenTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="1">
+            <Frame Padding="8" BackgroundColor="{Binding SixteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="1">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="16" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding SixteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding SixteenTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding SixteenTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding SixteenTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding SixteenTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="1" Grid.Column="2">
+            <Frame Padding="8" BackgroundColor="{Binding FifteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="1" Grid.Column="2">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="15" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding FifteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding FifteenTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding FifteenTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding FifteenTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding FifteenTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
 
-            <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="0">
+            <Frame Padding="8" BackgroundColor="{Binding FourteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="0">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="14" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding FourteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding FourteenTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding FourteenTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding FourteenTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding FourteenTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="1">
+            <Frame Padding="8" BackgroundColor="{Binding ThirteenTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="1">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="13" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding ThirteenTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding ThirteenTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding ThirteenTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding ThirteenTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding ThirteenTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
-            <Frame Padding="8" BackgroundColor="SlateGray" HasShadow="False" Grid.Row="2" Grid.Column="2">
+            <Frame Padding="8" BackgroundColor="{Binding BullTarget.IsActive, Converter={StaticResource IsActiveConverter}}" HasShadow="False" Grid.Row="2" Grid.Column="2">
                 <StackLayout>
                     <Label HorizontalOptions="Center" Text="Bull" FontSize="Title" FontAttributes="Bold"/>
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
                         <Grid ColumnDefinitions="*" RowDefinitions="*,*,*,*,*">
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" BackgroundColor="Orange" Opacity="1"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
-                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" BackgroundColor="Black" Opacity=".2"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="40" HeightRequest="40" Style="{Binding BullTarget.Hits[0], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="1" WidthRequest="40" HeightRequest="40" Style="{Binding BullTarget.Hits[1], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="2" WidthRequest="40" HeightRequest="40" Style="{Binding BullTarget.Hits[2], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="3" WidthRequest="40" HeightRequest="40" Style="{Binding BullTarget.Hits[3], Converter={StaticResource IsHitConverter}}"/>
+                            <Rectangle HorizontalOptions="CenterAndExpand" Grid.Column="0" Grid.Row="4" WidthRequest="40" HeightRequest="40" Style="{Binding BullTarget.Hits[4], Converter={StaticResource IsHitConverter}}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
             </Frame>
+
             <Button Grid.Row="3"
                     Grid.Column="0"
                     BackgroundColor="LightGreen"
