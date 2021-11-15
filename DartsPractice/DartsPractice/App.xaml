@@ -4,17 +4,27 @@
              x:Class="DartsPractice.App">
     <Application.Resources>
         <Style x:Key="TargetHit" TargetType="Rectangle">
-            <Setter Property="BackgroundColor"
-                    Value="Orange" />
-            <Setter Property="Opacity"
-                    Value="1" />
+            <Setter Property="BackgroundColor" Value="Orange" />
+            <Setter Property="Opacity" Value="1" />
         </Style>
 
-                <Style x:Key="TargetMissed" TargetType="Rectangle">
-            <Setter Property="BackgroundColor"
-                    Value="Black" />
-            <Setter Property="Opacity"
-                    Value=".2" />
+        <Style x:Key="TargetMissed" TargetType="Rectangle">
+            <Setter Property="BackgroundColor" Value="Black" />
+            <Setter Property="Opacity" Value=".2" />
+        </Style>
+
+        <Style x:Key="ShortcutBtn" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="DarkGray"/>
+            <Setter Property="TextColor" Value="#333"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="40"/>
+        </Style>
+
+        <Style x:Key="X01ScoreBtn" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="TextColor" Value="#333"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="40"/>
         </Style>
 
         <Style x:Key="TargetTitle" TargetType="Label">
