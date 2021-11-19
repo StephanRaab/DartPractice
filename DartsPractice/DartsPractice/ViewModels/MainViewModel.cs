@@ -12,6 +12,7 @@ namespace DartsPractice.ViewModels
         public ICommand PostItCommand { get; }
         public ICommand PowerCommand { get; }
         public ICommand A1Command { get; }
+        public ICommand StandardGameCommand { get; }
 
         public MainViewModel()
         {
@@ -21,6 +22,12 @@ namespace DartsPractice.ViewModels
             PostItCommand = new Command(PostItGame);
             PowerCommand = new Command(PowerGame);
             A1Command = new Command(A1Game);
+            StandardGameCommand = new Command(StandardGame);
+        }
+
+        private async void StandardGame()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new StandardPage());
         }
 
         private async void RvbGame()

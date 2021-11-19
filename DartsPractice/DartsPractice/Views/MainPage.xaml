@@ -16,6 +16,11 @@
                 FontAttributes="Bold"
                 FontSize="Large"
                 Text="A1 Drill" Command="{Binding A1Command}"/>
+        <Button BackgroundColor="White"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="x01" Command="{Binding StandardGameCommand}"/>
         <!--<Button BackgroundColor="White"
                 TextColor="Black"
                 FontAttributes="Bold"

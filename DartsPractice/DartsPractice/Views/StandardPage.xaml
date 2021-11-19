@@ -1,96 +1,112 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converters="clr-namespace:DartsPractice.Converters"
     x:Class="DartsPractice.Views.StandardPage"
     Title="{Binding Title}"
     BackgroundColor="Orange">
     <ContentPage.Content>
-        <StackLayout Margin="20">            
-            <Label
-                HorizontalOptions="Center"
-                Margin="0,0,0,15"
-                Text="{Binding StandardTotal}"
-                FontSize="100"
-                TextColor="White"
-                FontAttributes="Bold"/>
-
-            <StackLayout Orientation="Horizontal">
+        <StackLayout VerticalOptions="FillAndExpand">
+            <Frame VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding InitialOptions}" HasShadow="False" Margin="20">
                 <StackLayout>
-                    <Label Text="Avg"/>
-                    <Label Text="{Binding RunningAverage}"/>
+                    <Label HorizontalOptions="Center" FontSize="Title" Text="Input x01 Option"/>
+                    <Entry FontSize="40" HorizontalTextAlignment="Center" Text="{Binding InputTotal}" Placeholder="301, 501, 5001"/>
+                    <Button Margin="0,20,0,0" Style="{StaticResource GreenBtn}" Text="Start Game" Command="{Binding StartGameCommand}"/>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout IsVisible="{Binding InitialOptions, Converter={converters:BoolConverter}}">
+                <StackLayout Padding="20" BackgroundColor="White" >
+                    <Label
+                        HorizontalOptions="Center"
+                        Margin="0,0,0,15"
+                        Text="{Binding TotalLeft}"
+                        FontSize="100"
+                        TextColor="Black"
+                        FontAttributes="Bold"/>
+
+                    <StackLayout Spacing="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <StackLayout HorizontalOptions="Center">
+                            <Label HorizontalTextAlignment="Center" Text="Avg"/>
+                            <Label HorizontalTextAlignment="Center" Text="{Binding RunningAverage}"/>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="Center">
+                            <Label HorizontalTextAlignment="Center" Text="Round"/>
+                            <Label HorizontalTextAlignment="Center" Text="{Binding RoundCount}"/>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="Center">
+                            <Label HorizontalTextAlignment="Center" Text="Darts"/>
+                            <Label HorizontalTextAlignment="Center" Text="{Binding DartsThrown}"/>
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="Center">
+                            <Label HorizontalTextAlignment="Center" Text="High"/>
+                            <Label HorizontalTextAlignment="Center" Text="{Binding HighThrow}"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding TotalHit}" FontSize="Title" FontAttributes="Bold"/>
                 </StackLayout>
 
-                <StackLayout>
-                    <Label Text="Darts"/>
-                    <Label Text="{Binding DartsThrown}"/>
+                <Grid ColumnDefinitions="*,*,*,*,*" RowDefinitions="*,*,*,*" VerticalOptions="FillAndExpand">
+                    <Button Grid.Column="0" Grid.Row="0"
+                            Style="{StaticResource ShortcutBtn}" Text="26" CommandParameter="26" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="1" Grid.Row="0"
+                            Style="{StaticResource X01ScoreBtn}" Text="1" CommandParameter="1" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="2" Grid.Row="0"
+                            Style="{StaticResource X01ScoreBtn}" Text="2" CommandParameter="2" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="3" Grid.Row="0"
+                            Style="{StaticResource X01ScoreBtn}" Text="3" CommandParameter="3" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="4" Grid.Row="0"
+                            Style="{StaticResource ShortcutBtn}" Text="60"  CommandParameter="60" Command="{Binding ScoreInputCommand}"/>
+
+                    <Button Grid.Column="0" Grid.Row="1"
+                            Style="{StaticResource ShortcutBtn}" Text="41" CommandParameter="41" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="1" Grid.Row="1"
+                            Style="{StaticResource X01ScoreBtn}" Text="4" CommandParameter="4" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="2" Grid.Row="1" Text="5"
+                            Style="{StaticResource X01ScoreBtn}" CommandParameter="5" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="3" Grid.Row="1" Text="6"
+                            Style="{StaticResource X01ScoreBtn}" CommandParameter="6" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="4" Grid.Row="1"
+                            Style="{StaticResource ShortcutBtn}" Text="85" CommandParameter="85" Command="{Binding ScoreInputCommand}"/>
+
+                    <Button Grid.Column="0" Grid.Row="2"
+                            Style="{StaticResource ShortcutBtn}" Text="45" CommandParameter="45" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="1" Grid.Row="2" Text="7"
+                            Style="{StaticResource X01ScoreBtn}" CommandParameter="7" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="2" Grid.Row="2" Text="8"
+                            Style="{StaticResource X01ScoreBtn}" CommandParameter="8" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="3" Grid.Row="2" Text="9"
+                            Style="{StaticResource X01ScoreBtn}" CommandParameter="9" Command="{Binding ScoreInputCommand}"/>
+                    <Button Grid.Column="4" Grid.Row="2" Text="100"
+                            Style="{StaticResource ShortcutBtn}" CharacterSpacing="-1" FontSize="35" CommandParameter="100" Command="{Binding ScoreInputCommand}"/>
+
+                    <Button Style="{StaticResource RedBtn}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="CLR" FontSize="Large"  Command="{Binding ClrCommand}"/>
+                    <Button Style="{StaticResource X01ScoreBtn}" Grid.Column="2" Grid.Row="3" Text="0" CommandParameter="0" Command="{Binding ScoreInputCommand}"/>
+                    <Button Style="{StaticResource GreenBtn}" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding ScoreBtn}" FontSize="Large"  Command="{Binding ScoreCommand}"/>
+                </Grid>
+
+                <StackLayout
+                    Margin="10"
+                    IsVisible="false"
+                    Spacing="10"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    VerticalOptions="EndAndExpand">
+                    <Button
+                        Style="{StaticResource RedBtn}"
+                        FontSize="Large"
+                        Text="Quit"
+                        Command="{Binding QuitGameCommand}"/>
+                    <Button
+                        Style="{StaticResource GreenBtn}"
+                        FontSize="Large"
+                        Text="Play Again"
+                        Command="{Binding NewGameCommand}"/>
                 </StackLayout>
-            </StackLayout>
-
-            <Grid ColumnDefinitions="*,*,*,*,*" RowDefinitions="*,*,*,*" VerticalOptions="FillAndExpand">                
-                <Button Grid.Column="1" Grid.Row="0"
-                        Style="{StaticResource ShortcutBtn}" Text="1" CommandParameter="1" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="1" Grid.Row="0"
-                        Style="{StaticResource X01ScoreBtn}" Text="1" CommandParameter="1" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="2" Grid.Row="0"
-                        Style="{StaticResource X01ScoreBtn}" Text="2" CommandParameter="2" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="3" Grid.Row="0"
-                        Style="{StaticResource X01ScoreBtn}" Text="3" CommandParameter="3" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="4" Grid.Row="0"
-                        Style="{StaticResource ShortcutBtn}" Text="60" FontSize="Large" FontAttributes="Bold" CommandParameter="60" Command="{Binding ScoreCommand}"/>
-
-                <Button Grid.Column="0" Grid.Row="1"
-                        Style="{StaticResource ShortcutBtn}" Text="41" CommandParameter="41" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="1" Grid.Row="1"
-                        Style="{StaticResource X01ScoreBtn}" Text="4" CommandParameter="4" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="2" Grid.Row="1" Text="5"
-                        Style="{StaticResource X01ScoreBtn}" CommandParameter="5" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="3" Grid.Row="1" Text="6"
-                        Style="{StaticResource X01ScoreBtn}" CommandParameter="6" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="4" Grid.Row="1"
-                        Style="{StaticResource ShortcutBtn}" Text="85" CommandParameter="85" Command="{Binding ScoreCommand}"/>
-
-                <Button Grid.Column="0" Grid.Row="2"
-                        Style="{StaticResource ShortcutBtn}" Text="45" CommandParameter="45" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="1" Grid.Row="2" Text="7"
-                        Style="{StaticResource X01ScoreBtn}" CommandParameter="7" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="2" Grid.Row="2" Text="8"
-                        Style="{StaticResource X01ScoreBtn}" CommandParameter="8" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="3" Grid.Row="2" Text="9"
-                        Style="{StaticResource X01ScoreBtn}" CommandParameter="9" Command="{Binding ScoreCommand}"/>
-                <Button Grid.Column="4" Grid.Row="2" Text="100"
-                        Style="{StaticResource ShortcutBtn}" CommandParameter="100" Command="{Binding ScoreCommand}"/>
-
-                <StackLayout Orientation="Horizontal" Grid.ColumnSpan="5" Grid.Row="3">
-                    <Button Style="{StaticResource RedBtn}" Text="CLR" FontSize="Large" FontAttributes="Bold" Command="{Binding ClrCommand}"/>
-                    <Button BackgroundColor="White" TextColor="#333" Text="0" FontSize="Large" FontAttributes="Bold" CommandParameter="0" Command="{Binding ScoreCommand}"/>
-                    <Button Style="{StaticResource GreenBtn}" Text="{Binding ScoreBtn}" FontSize="Large" FontAttributes="Bold" Command="{Binding ClrCommand}"/>
-                </StackLayout>
-            </Grid>
-
-            <StackLayout
-                Margin="10"
-                IsVisible="{Binding ShowEndOptions}"
-                Spacing="10"
-                HorizontalOptions="CenterAndExpand"
-                Orientation="Horizontal"
-                VerticalOptions="EndAndExpand">
-                <Button
-                    BackgroundColor="DarkRed"
-                    TextColor="White"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    Padding="10"
-                    Text="Quit"
-                    Command="{Binding QuitGameCommand}"/>
-                <Button
-                    BackgroundColor="MediumSeaGreen"
-                    TextColor="white"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    Padding="10"
-                    Text="Play Again"
-                    Command="{Binding NewGameCommand}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
