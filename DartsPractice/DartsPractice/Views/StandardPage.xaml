@@ -6,28 +6,27 @@
     Title="{Binding Title}"
     BackgroundColor="Orange">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout>
             <Frame VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding InitialOptions}" HasShadow="False" Margin="20">
                 <StackLayout>
                     <Label HorizontalOptions="Center" FontSize="Title" Text="Input x01 Option"/>
-                    <Entry FontSize="40" HorizontalTextAlignment="Center" Text="{Binding InputTotal}" Placeholder="301, 501, 5001"/>
+                    <Entry TextColor="Black" FontSize="40" HorizontalTextAlignment="Center" Text="{Binding InputTotal}" Placeholder="301, 501, 5001"/>
                     <Button Margin="0,20,0,0" Style="{StaticResource GreenBtn}" Text="Start Game" Command="{Binding StartGameCommand}"/>
                 </StackLayout>
             </Frame>
 
-            <StackLayout IsVisible="{Binding InitialOptions, Converter={converters:BoolConverter}}">
-                <StackLayout Padding="20" BackgroundColor="White" >
+            <Grid IsVisible="{Binding InitialOptions, Converter={converters:BoolConverter}}" RowDefinitions="*,*" VerticalOptions="FillAndExpand">
+            <StackLayout Grid.Row="0" Padding="20" BackgroundColor="White" >
                     <Label
                         HorizontalOptions="Center"
                         Margin="0,0,0,15"
                         Text="{Binding TotalLeft}"
                         FontSize="100"
-                        TextColor="Black"
                         FontAttributes="Bold"/>
 
-                    <StackLayout Spacing="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <StackLayout Margin="0,30,0,0" Spacing="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <StackLayout HorizontalOptions="Center">
-                            <Label HorizontalTextAlignment="Center" Text="Avg"/>
+                            <Label  HorizontalTextAlignment="Center" Text="Avg"/>
                             <Label HorizontalTextAlignment="Center" Text="{Binding RunningAverage}"/>
                         </StackLayout>
 
@@ -47,10 +46,10 @@
                         </StackLayout>
                     </StackLayout>
 
-                    <Label HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding TotalHit}" FontSize="Title" FontAttributes="Bold"/>
+                    <Label Margin="0,30,0,0" HorizontalOptions="Center" HorizontalTextAlignment="Center" Text="{Binding TotalHit}" FontSize="35" FontAttributes="Bold"/>
                 </StackLayout>
 
-                <Grid ColumnDefinitions="*,*,*,*,*" RowDefinitions="*,*,*,*" VerticalOptions="FillAndExpand">
+                <Grid Grid.Row="1" ColumnDefinitions="*,*,*,*,*" RowDefinitions="*,*,*,*">
                     <Button Grid.Column="0" Grid.Row="0"
                             Style="{StaticResource ShortcutBtn}" Text="26" CommandParameter="26" Command="{Binding ScoreInputCommand}"/>
                     <Button Grid.Column="1" Grid.Row="0"
@@ -60,7 +59,7 @@
                     <Button Grid.Column="3" Grid.Row="0"
                             Style="{StaticResource X01ScoreBtn}" Text="3" CommandParameter="3" Command="{Binding ScoreInputCommand}"/>
                     <Button Grid.Column="4" Grid.Row="0"
-                            Style="{StaticResource ShortcutBtn}" Text="60"  CommandParameter="60" Command="{Binding ScoreInputCommand}"/>
+                            Style="{StaticResource ShortcutBtn}" CharacterSpacing="-1" FontSize="30" Text="60"  CommandParameter="60" Command="{Binding ScoreInputCommand}"/>
 
                     <Button Grid.Column="0" Grid.Row="1"
                             Style="{StaticResource ShortcutBtn}" Text="41" CommandParameter="41" Command="{Binding ScoreInputCommand}"/>
@@ -82,13 +81,15 @@
                     <Button Grid.Column="3" Grid.Row="2" Text="9"
                             Style="{StaticResource X01ScoreBtn}" CommandParameter="9" Command="{Binding ScoreInputCommand}"/>
                     <Button Grid.Column="4" Grid.Row="2" Text="100"
-                            Style="{StaticResource ShortcutBtn}" CharacterSpacing="-1" FontSize="35" CommandParameter="100" Command="{Binding ScoreInputCommand}"/>
+                            Style="{StaticResource ShortcutBtn}" CharacterSpacing="-1" FontSize="30" CommandParameter="100" Command="{Binding ScoreInputCommand}"/>
 
                     <Button Style="{StaticResource RedBtn}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Text="CLR" FontSize="Large"  Command="{Binding ClrCommand}"/>
                     <Button Style="{StaticResource X01ScoreBtn}" Grid.Column="2" Grid.Row="3" Text="0" CommandParameter="0" Command="{Binding ScoreInputCommand}"/>
                     <Button Style="{StaticResource GreenBtn}" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Text="{Binding ScoreBtn}" FontSize="Large"  Command="{Binding ScoreCommand}"/>
                 </Grid>
+            </Grid>
 
+            <StackLayout>
                 <StackLayout
                     Margin="10"
                     IsVisible="false"
