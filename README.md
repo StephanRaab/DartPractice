@@ -22,11 +22,16 @@ You need 5 drill hits on each target to close and finish the game.
 ## Switching Practice
 
 Took the idea from Matador Darts: https://www.youtube.com/watch?v=KapqZl4OPzo
+
 Player throws first 2 darts at the 20 segment
+
 Single number = 1 point, treble = 3.
 
+
 Player then switches with the third dart
+
 1x @ 19, 18, 17, 16, 15
+
 Points on the switched segment are doubled (single/double = 2, treble = 6)
 
 **If you miss the switch segment, you score *0 points* for you visit!**
