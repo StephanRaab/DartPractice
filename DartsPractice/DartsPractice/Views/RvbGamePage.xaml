@@ -7,11 +7,11 @@
     BackgroundColor="Orange">
     <ContentPage.Content>
         <StackLayout Margin="20">
-            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Target" TextColor="White"/>
-            <Label HorizontalOptions="Center" Margin="0,0,0,15" Text="{Binding CurrentTarget}" FontSize="100" TextColor="White" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Target" />
+            <Label HorizontalOptions="Center" Margin="0,0,0,15" Text="{Binding CurrentTarget}" FontSize="100" FontAttributes="Bold"/>
 
-            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Current Total" TextColor="White"/>
-            <Label HorizontalOptions="Center" Margin="0,0,0,15" Text="{Binding RunningTotal}" FontSize="60" TextColor="White" FontAttributes="Bold"/>
+            <Label HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" Text="Current Total"/>
+            <Label HorizontalOptions="Center" Margin="0,0,0,15" Text="{Binding RunningTotal}" FontSize="60" FontAttributes="Bold"/>
 
             <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*" VerticalOptions="FillAndExpand">
                 <Button BackgroundColor="White" TextColor="#333" Grid.Column="0" Grid.Row="0" Text="1" FontSize="Large" FontAttributes="Bold" CommandParameter="1" Command="{Binding ScoreCommand}"/>
@@ -30,26 +30,22 @@
             </Grid>
 
             <StackLayout
-                Margin="10"
+                Margin="20"
                 IsVisible="{Binding ShowEndOptions}"
                 Spacing="10"
                 HorizontalOptions="CenterAndExpand"
                 Orientation="Horizontal"
-                VerticalOptions="EndAndExpand">
+                VerticalOptions="End">
                 <Button
-                    BackgroundColor="DarkRed"
-                    TextColor="White"
+                    Style="{StaticResource RedBtn}"
                     FontSize="Large"
-                    FontAttributes="Bold"
-                    Padding="10"
+                    Padding="20"
                     Text="Quit"
                     Command="{Binding QuitGameCommand}"/>
                 <Button
-                    BackgroundColor="MediumSeaGreen"
-                    TextColor="white"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    Padding="10"
+                    Style="{StaticResource GreenBtn}"                    
+                    FontSize="Large"                    
+                    Padding="20"
                     Text="Play Again"
                     Command="{Binding NewGameCommand}"/>
             </StackLayout>
