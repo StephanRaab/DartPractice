@@ -13,6 +13,7 @@ namespace DartsPractice.ViewModels
         public ICommand PowerCommand { get; }
         public ICommand A1Command { get; }
         public ICommand StandardGameCommand { get; }
+        public ICommand SwitchingCommand { get; }
 
         public MainViewModel()
         {
@@ -23,6 +24,12 @@ namespace DartsPractice.ViewModels
             PowerCommand = new Command(PowerGame);
             A1Command = new Command(A1Game);
             StandardGameCommand = new Command(StandardGame);
+            SwitchingCommand = new Command(SwitchingGame);
+        }
+
+        private async void SwitchingGame(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new SwitchingPage());
         }
 
         private async void StandardGame()
