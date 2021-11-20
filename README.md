@@ -10,13 +10,19 @@ Score treble as 3, double as 2 and single as 1.
 
 ## X01
 Just like every other game of 301, 501, etc
+
 Wanted the capability to increase it into the thousands.
+
+Fantastic game for powerscoring.
 
 ## A1 Drill
 
 Throw 3 darts at the segments 13 through 20 and Bull.
+
 The object is to get at least 2 out of 3 darts in the bed.
+
 When you hit a target, with at least 2 darts, you get a drill hit.
+
 You need 5 drill hits on each target to close and finish the game.
 
 ## Switching Practice
