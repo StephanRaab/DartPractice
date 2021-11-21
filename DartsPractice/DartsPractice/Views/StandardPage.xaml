@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converters="clr-namespace:DartsPractice.Converters"
     x:Class="DartsPractice.Views.StandardPage"
     Title="{Binding Title}"
-    BackgroundColor="Orange">
+    BackgroundColor="#333">
     <ContentPage.Content>
         <StackLayout>
             <Frame VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding InitialOptions}" HasShadow="False" Margin="20">
@@ -24,7 +24,7 @@
                         FontSize="100"
                         FontAttributes="Bold"/>
 
-                    <StackLayout Margin="0,30,0,0" Spacing="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <StackLayout IsVisible="{Binding InGameStats}" Margin="0,30,0,0" Spacing="30" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <StackLayout HorizontalOptions="Center">
                             <Label  HorizontalTextAlignment="Center" Text="Avg"/>
                             <Label HorizontalTextAlignment="Center" Text="{Binding RunningAverage}"/>
@@ -43,6 +43,41 @@
                         <StackLayout HorizontalOptions="Center">
                             <Label HorizontalTextAlignment="Center" Text="High"/>
                             <Label HorizontalTextAlignment="Center" Text="{Binding HighThrow}"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout IsVisible="{Binding InGameStats, Converter={converters:BoolConverter}}" Margin="0,30,0,0" Spacing="15" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <StackLayout HorizontalOptions="Center">
+                            <Label  HorizontalTextAlignment="Center" Text="Avg"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding RunningAverage}"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label HorizontalTextAlignment="Center" Text="High"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding HighThrow}"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label  HorizontalTextAlignment="Center" Text="60+"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding SixtyPlusHit}"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label  HorizontalTextAlignment="Center" Text="80+"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding EightyPlusHit}"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label  HorizontalTextAlignment="Center" Text="100+"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding HundredPlusHit}"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label  HorizontalTextAlignment="Center" Text="120+"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding HundredTwentyPlusHit}"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label  HorizontalTextAlignment="Center" Text="140+"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding HundredFortyPlusHit}"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label  HorizontalTextAlignment="Center" Text="180"/>
+                            <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Text="{Binding OneEightyHit}"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -92,7 +127,7 @@
             <StackLayout>
                 <StackLayout
                     Margin="10"
-                    IsVisible="false"
+                    IsVisible="{Binding ShowEndOptions}"
                     Spacing="10"
                     HorizontalOptions="CenterAndExpand"
                     Orientation="Horizontal"

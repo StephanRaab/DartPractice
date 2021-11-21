@@ -19,6 +19,62 @@ namespace DartsPractice.ViewModels
         public ICommand StartGameCommand { get; }
         private double _hitAverageTotal = 0.00;
 
+        private bool _inGameStats = true;
+        public bool InGameStats
+        {
+            get => _inGameStats;
+            set => SetProperty(ref _inGameStats, value);
+        }
+
+        private bool _showEndOptions = false;
+        public bool ShowEndOptions
+        {
+            get => _showEndOptions;
+            set => SetProperty(ref _showEndOptions, value);
+        }
+
+        private int _sixtyPlusHit;
+        public int SixtyPlusHit
+        {
+            get => _sixtyPlusHit;
+            set => SetProperty(ref _sixtyPlusHit, value);
+        }
+
+        private int _eightyPlusHit;
+        public int EightyPlusHit
+        {
+            get => _eightyPlusHit;
+            set => SetProperty(ref _eightyPlusHit, value);
+        }
+
+        private int _hundredPlusHit;
+        public int HundredPlusHit
+        {
+            get => _hundredPlusHit;
+            set => SetProperty(ref _hundredPlusHit, value);
+        }
+
+        private int _hundredTwentyPlusHit;
+        public int HundredTwentyPlusHit
+        {
+            get => _hundredTwentyPlusHit;
+            set => SetProperty(ref _hundredTwentyPlusHit, value);
+        }
+
+        private int _hundredFortyPlusHit;
+        public int HundredFortyPlusHit
+        {
+            get => _hundredFortyPlusHit;
+            set => SetProperty(ref _hundredFortyPlusHit, value);
+        }
+
+        private int _oneEightyHit;
+        public int OneEightyHit
+        {
+            get => _oneEightyHit;
+            set => SetProperty(ref _oneEightyHit, value);
+        }
+
         private int _highThrow;
         public int HighThrow
         {
@@ -130,45 +186,65 @@ namespace DartsPractice.ViewModels
             return 0;
         }
 
-        private string IntToString(int intNeedingString)
-        {
-            return Convert.ToString(intNeedingString);
-        }
-
         private async void updateScore()
         {            
-            var totalhit = ToInt(_totalHit);            
+            var totalHit = ToInt(TotalHit);            
             
-            if (totalhit > 180)
+            if (totalHit > 180)
             {
                 ClearScore();
             } else
             {
-                // if CurrentTotal -= totalhit <0 ..bust
-                // else if
-                if ((TotalLeft - totalhit) < 0)
+                if ((TotalLeft - totalHit) < 0)
                 {
                     // you've busted..increase roundcount, calculate average, dartsThrown
                     UpdateUI();
-                } else if ((TotalLeft - totalhit) == 0)
+                } else if ((TotalLeft - totalHit) == 0)
                 {
-                    _hitAverageTotal += totalhit;
-                    updateHighScore(totalhit);
+                    updateStats(totalHit);
+                    _hitAverageTotal += totalHit;
+                    updateHighScore(totalHit);
                     // get finishing dartcount from popup
                     string checkoutCount = await Application.Current.MainPage.DisplayActionSheet("How many darts to checkout?", null, null, "1", "2", "3");
-                    TotalLeft -= totalhit;
+                    TotalLeft -= totalHit;
                     UpdateUI(ToInt(checkoutCount));
 
                     // show stats and endgame options
+                    InGameStats = false; //endgamestats true :P
+                    ShowEndOptions = true;
                     return;
                 } else
                 {
                     // keep going, you've got this
-                    _hitAverageTotal += totalhit;
-                    updateHighScore(totalhit);
-                    TotalLeft -= totalhit;
+                    updateStats(totalHit);
+                    _hitAverageTotal += totalHit;
+                    updateHighScore(totalHit);
+                    TotalLeft -= totalHit;
                     UpdateUI();
                 }                                                                            
+            }
+        }
+
+        private void updateStats(int totalHit)
+        {
+            if ((totalHit >= 60) && (totalHit < 80))
+            {
+                SixtyPlusHit++;
+            } else if ((totalHit >= 80) && (totalHit < 100))
+            {
+                EightyPlusHit++;
+            } else if ((totalHit >= 100) && (totalHit < 120))
+            {
+                HundredPlusHit++;
+            } else if ((totalHit >= 120) && (totalHit < 140))
+            {
+                HundredTwentyPlusHit++;
+            } else if ((totalHit >= 140) && (totalHit < 180))
+            {
+                HundredFortyPlusHit++;
+            } else if (totalHit == 180)
+            {
+                OneEightyHit++;
             }
         }
 
@@ -210,17 +286,26 @@ namespace DartsPractice.ViewModels
 
         private void newGameCommand()
         {
-            ResetGame();
-        }
-
-        private void ResetGame()
-        {
             InitialOptions = true;
+            ShowEndOptions = false;
+            InGameStats = true;
+            _hitAverageTotal = 0.00;
+            SixtyPlusHit = 0;
+            EightyPlusHit = 0;
+            HundredPlusHit = 0;
+            HundredTwentyPlusHit = 0;
+            HundredFortyPlusHit = 0;
+            OneEightyHit = 0;
+            RoundCount = 0;
+            RunningAverage = "0.00";
+            HighThrow = 0;
+            DartsThrown = 0;
+            TotalLeft = InputTotal;
         }
 
-        public StandardViewModel()
+    public StandardViewModel()
         {
-            Title = "x01";
+            Title = $"x01";
             ScoreCommand = new Command(updateScore);
             ClrCommand = new Command(ClearScore);
             ScoreInputCommand = new Command<string>(hitInput);
@@ -234,6 +319,7 @@ namespace DartsPractice.ViewModels
         private void StartThrowing()
         {
             InitialOptions = false;
+            ShowEndOptions = false;
         }
 
         private void ClearScore()
