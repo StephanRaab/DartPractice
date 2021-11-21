@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converters="clr-namespace:DartsPractice.Converters"
     x:Class="DartsPractice.Views.StandardPage"
     Title="{Binding Title}"
-    BackgroundColor="#333">
+    BackgroundColor="{Binding BackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
             <Frame VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding InitialOptions}" HasShadow="False" Margin="20">

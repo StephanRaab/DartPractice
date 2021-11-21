@@ -19,6 +19,13 @@ namespace DartsPractice.ViewModels
         public ICommand StartGameCommand { get; }
         private double _hitAverageTotal = 0.00;
 
+        private Color _backgroundColor = Color.Orange;
+        public Color BackgroundColor
+        {
+            get => _backgroundColor;
+            set => SetProperty(ref _backgroundColor, value);
+        }
+
         private bool _inGameStats = true;
         public bool InGameStats
         {
@@ -301,11 +308,13 @@ namespace DartsPractice.ViewModels
             HighThrow = 0;
             DartsThrown = 0;
             TotalLeft = InputTotal;
+            BackgroundColor = Color.Orange;
+            Title = "x01";
         }
 
     public StandardViewModel()
         {
-            Title = $"x01";
+            Title = "x01";
             ScoreCommand = new Command(updateScore);
             ClrCommand = new Command(ClearScore);
             ScoreInputCommand = new Command<string>(hitInput);
@@ -320,6 +329,8 @@ namespace DartsPractice.ViewModels
         {
             InitialOptions = false;
             ShowEndOptions = false;
+            BackgroundColor = Color.FromHex("#333");
+            Title = Convert.ToString(TotalLeft);
         }
 
         private void ClearScore()
