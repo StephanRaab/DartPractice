@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="DartsPractice.Views.ThreeBelgians" Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label HorizontalTextAlignment="Center" Text="{Binding CurrentTargetText}" FontSize="100" FontAttributes="Bold"/>
+            <Label HorizontalTextAlignment="Center" Text="{Binding RunningScore}" FontSize="40" Margin="0,20,0,0" FontAttributes="Bold"/>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+                <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource GreenBtn}" Text="1 hit" CommandParameter="1" Command="{Binding SingleHitCommand}"/>
+                <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource GreenBtn}" Text="2 hits" CommandParameter="2" Command="{Binding DoubleHitCommand}"/>
+                <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource GreenBtn}" Text="3 hits" CommandParameter="3" Command="{Binding TrebleHitCommand}"/>
+                <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource RedBtn}" Text="No hits" CommandParameter="0" Command="{Binding NoHitCommand}"/>
+            </Grid>
+
+            <StackLayout>
+                <StackLayout
+                    Margin="10"
+                    IsVisible="{Binding ShowEndOptions}"
+                    Spacing="10"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    VerticalOptions="EndAndExpand">
+                    <Button
+                        Style="{StaticResource RedBtn}"
+                        FontSize="Large"
+                        Text="Quit"
+                        Command="{Binding QuitGameCommand}"/>
+                    <Button
+                        Style="{StaticResource GreenBtn}"
+                        FontSize="Large"
+                        Text="Play Again"
+                        Command="{Binding NewGameCommand}"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

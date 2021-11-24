@@ -26,6 +26,11 @@
                 FontAttributes="Bold"
                 FontSize="Large"
                 Text="Switching Practice" Command="{Binding SwitchingCommand}"/>
+        <Button BackgroundColor="White"
+                TextColor="Black"
+                FontAttributes="Bold"
+                FontSize="Large"
+                Text="Three Belgians" Command="{Binding ThreeBelgiansCommand}"/>
         <!--<Button BackgroundColor="White"
                 TextColor="Black"
                 FontAttributes="Bold"

@@ -14,6 +14,7 @@ namespace DartsPractice.ViewModels
         public ICommand A1Command { get; }
         public ICommand StandardGameCommand { get; }
         public ICommand SwitchingCommand { get; }
+        public ICommand ThreeBelgiansCommand { get; }
 
         public MainViewModel()
         {
@@ -25,9 +26,15 @@ namespace DartsPractice.ViewModels
             A1Command = new Command(A1Game);
             StandardGameCommand = new Command(StandardGame);
             SwitchingCommand = new Command(SwitchingGame);
+            ThreeBelgiansCommand = new Command(ThreeBelgiansGame);
         }
 
-        private async void SwitchingGame(object obj)
+        private async void ThreeBelgiansGame(object obj)
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ThreeBelgiansPage());
+        }
+
+        private async void SwitchingGame()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new SwitchingPage());
         }

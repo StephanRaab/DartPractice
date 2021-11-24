@@ -10,7 +10,7 @@
             <Frame VerticalOptions="Center" HorizontalOptions="Center" IsVisible="{Binding InitialOptions}" HasShadow="False" Margin="20">
                 <StackLayout>
                     <Label HorizontalOptions="Center" FontSize="Title" Text="Input x01 Option"/>
-                    <Entry TextColor="Black" FontSize="40" HorizontalTextAlignment="Center" Text="{Binding InputTotal}" Placeholder="301, 501, 5001"/>
+                    <Entry Keyboard="Numeric" TextColor="Black" FontSize="40" HorizontalTextAlignment="Center" Text="{Binding InputTotal}" Placeholder="301, 501, 5001"/>
                     <Button Margin="0,20,0,0" Style="{StaticResource GreenBtn}" Text="Start Game" Command="{Binding StartGameCommand}"/>
                 </StackLayout>
             </Frame>
