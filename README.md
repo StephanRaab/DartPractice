@@ -44,6 +44,22 @@ Points on the switched segment are doubled (single/double = 2, treble = 6)
 
 Try to beat your previous score.
 
+## Three Belgians
+
+Throw one dart at each of the targets.
+
+Singles = no doubles or trebles count.
+
+Singles = Extra 3 points if you hit them all
+
+Doubles = Extra 2 points if you can hit two of them
+
+Doubles = Extra 6 points if you can hit them all
+
+Trebles = Extra 3 points if you can hit two of them
+
+Trebles = Extra 9 points if you can hit them all
+
 ## Post-It Game
 
 Attach post-it note to board. 
