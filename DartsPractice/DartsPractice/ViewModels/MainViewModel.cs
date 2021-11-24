@@ -29,7 +29,7 @@ namespace DartsPractice.ViewModels
             ThreeBelgiansCommand = new Command(ThreeBelgiansGame);
         }
 
-        private async void ThreeBelgiansGame(object obj)
+        private async void ThreeBelgiansGame()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ThreeBelgiansPage());
         }

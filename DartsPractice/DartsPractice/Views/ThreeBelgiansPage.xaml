@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="DartsPractice.Views.ThreeBelgians" Title="{Binding Title}">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converters="clr-namespace:DartsPractice.Converters"
+    x:Class="DartsPractice.Views.ThreeBelgiansPage" Title="{Binding Title}" BackgroundColor="Orange">
     <ContentPage.Content>
-        <StackLayout>
-            <Label HorizontalTextAlignment="Center" Text="{Binding CurrentTargetText}" FontSize="100" FontAttributes="Bold"/>
-            <Label HorizontalTextAlignment="Center" Text="{Binding RunningScore}" FontSize="40" Margin="0,20,0,0" FontAttributes="Bold"/>
+        <StackLayout Margin="5">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+                <Label HorizontalTextAlignment="Center" Text="{Binding CurrentTargetText}" FontSize="90" FontAttributes="Bold"/>
+                <Label HorizontalTextAlignment="Center" Text="Your Score" FontSize="40" Margin="0,50,0,0" FontAttributes="Bold"/>
+                <Label HorizontalTextAlignment="Center" Text="{Binding RunningScore}" FontSize="40" Margin="0,10,0,0" FontAttributes="Bold"/>
+            </StackLayout>
 
-            <Grid ColumnDefinitions="*,*" RowDefinitions="*,*">
+            <Grid IsVisible="{Binding ShowEndOptions, Converter={converters:BoolConverter}}"
+                  Margin="0,0,0,20"
+                  ColumnDefinitions="*,*"
+                  VerticalOptions="EndAndExpand"
+                  RowDefinitions="*,*">
                 <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource GreenBtn}" Text="1 hit" CommandParameter="1" Command="{Binding SingleHitCommand}"/>
                 <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource GreenBtn}" Text="2 hits" CommandParameter="2" Command="{Binding DoubleHitCommand}"/>
                 <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource GreenBtn}" Text="3 hits" CommandParameter="3" Command="{Binding TrebleHitCommand}"/>
@@ -27,11 +34,13 @@
                         Style="{StaticResource RedBtn}"
                         FontSize="Large"
                         Text="Quit"
+                        Padding="10"
                         Command="{Binding QuitGameCommand}"/>
                     <Button
                         Style="{StaticResource GreenBtn}"
                         FontSize="Large"
                         Text="Play Again"
+                        Padding="10"
                         Command="{Binding NewGameCommand}"/>
                 </StackLayout>
             </StackLayout>
