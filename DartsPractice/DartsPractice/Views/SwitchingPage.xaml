@@ -5,6 +5,15 @@
     x:Class="DartsPractice.Views.SwitchingPage"
     BackgroundColor="Orange"
     Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="ic_info_outline.png"
+            Order="Primary"
+            Priority="0" />
+    </ContentPage.ToolbarItems>
+
+
     <ContentPage.Content>
         <StackLayout Margin="20">
             <Grid RowDefinitions="*,*" VerticalOptions="FillAndExpand">
